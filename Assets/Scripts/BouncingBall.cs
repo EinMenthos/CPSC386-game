@@ -28,7 +28,7 @@ void HandleEnemy(GameObject other)//Deletes enemy and applies damage
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Trigger");
+        Debug.Log("Trigger-Enemy");
         if(collider.tag == "Enemy")
             HandleEnemy(collider.gameObject);
 
@@ -37,15 +37,20 @@ void HandleEnemy(GameObject other)//Deletes enemy and applies damage
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision.otherCollider.tag);
+        //Debug.Log("Collision-Enemy");
         if(collision.collider.tag == "Enemy"){
-            Debug.Log("Collision with enemy");
+            Debug.Log("Collision-Enemy");
             //HandleEnemy(collision.otherCollider.gameObject);
             HandleEnemy(collision.collider.gameObject);
         }
-        //else
+        else if(collision.collider.tag == "Player"){
+            Debug.Log("Collision-player");
+            //collision. -> used to interact with the object2 that collided with 1.
+            //transform. -> used to interact with the object1 itself
+        }
         //    Debug.Log("Collision with something else");
 
         //Requires both objects have rigidbody2d and collider, with maximum 1 kinematic rigidbody
     }
+    
 }

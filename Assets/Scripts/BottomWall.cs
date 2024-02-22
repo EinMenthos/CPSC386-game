@@ -9,8 +9,16 @@ public class BottomWall : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Trigger");
-        SceneManager.LoadScene("gameover");
+        Debug.Log("Trigger / bottom wall");
+        if(collider.tag == "ball"){
+            Debug.Log("trigger-ball");
+            SceneManager.LoadScene("gameover");
+            //ballModifier = FindObjectOfType
+        }
+        else{
+            Debug.Log("trigger-bar");
+
+        }
 
         //if(collider.tag == "Enemy")
             //HandleEnemy(collider.gameObject);
