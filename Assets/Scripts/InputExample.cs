@@ -16,7 +16,8 @@ public class InputExample : MonoBehaviour
     [SerializeField]
     bool useForce = true;
     [SerializeField]
-    float jumpPower = 6f, moveSpeed = 2.5f;
+    float moveSpeed = 3.0f;
+    //float jumpPower = 6f, moveSpeed = 3.0f;
     float physicsModifier = 100f;
 
     Vector2 moveDir = Vector2.zero;
@@ -25,7 +26,7 @@ public class InputExample : MonoBehaviour
     }
 
     [SerializeField]
-    float waypointRadius = 8.14f;
+    float waypointRadius = 7.18f;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -46,8 +47,11 @@ public class InputExample : MonoBehaviour
                 }
                         movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
             }
+            /*
+            //it hit the walls
             else
                 Debug.Log("Out");
+                */
         }
         
 
@@ -64,14 +68,16 @@ public class InputExample : MonoBehaviour
     
     float speed;
 
-    void OnJump()
+/*    void OnJump()
     {
         speed = jumpingBody.velocity.magnitude;
+        Debug.Log(speed);
         if (speed == 0)
         {
-            if(jumpingBody) jumpingBody.AddForce(Vector2.up*jumpPower,ForceMode2D.Impulse);
+            //if(jumpingBody) jumpingBody.AddForce(Vector2.up*jumpPower,ForceMode2D.Impulse);
         }
         
         //Debug.Log("jump");
     }
+    */
 }
