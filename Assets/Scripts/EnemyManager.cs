@@ -33,6 +33,7 @@ public class EnemyManager : MonoBehaviour
         }
         //Todo: how could we alter this so enemies always spawn around the player?
         go.transform.position = new Vector3(Random.Range(-8, 8), Random.Range(-8, 8));
+        curSpawned++;
         return go;
     }
 
@@ -40,6 +41,7 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        //Debug.Log("Enemies: " + curSpawned);
         if(curSpawned < maxEnemiesSpawned && timer > 1f/spawnsPerSecond)
         {
             SpawnEnemy();
