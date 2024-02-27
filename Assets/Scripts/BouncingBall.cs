@@ -6,12 +6,12 @@ using UnityEngine;
 public class BouncingBall : MonoBehaviour
 {
     EnemyManager em;
-    public new Rigidbody2D rigidbody {get; private set; }
+    public Rigidbody2D rigidbodyB {get; private set; }
     public float speed = 6f;
 
     
     private void Awake(){
-        this.rigidbody = GetComponent<Rigidbody2D>();
+        rigidbodyB = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -19,14 +19,21 @@ public class BouncingBall : MonoBehaviour
     void Start()
     {
         em = FindObjectOfType<EnemyManager>();
-        Invoke(nameof(SetRandomTrajectory), 1f);
+        //Invoke(nameof(SetRandomTrajectory), 1f);
+        //SetRandomTrajectory();
+    }
+
+    void Update()
+    {
+        rigidbodyB.velocity = rigidbodyB.velocity.normalized * speed;
     }
 
 private void SetRandomTrajectory(){
     Vector2 force = Vector2.up;
     force.x = Random.Range(-1f, 1f);
     //force.y = 1f; //always going up   //not needed because I declared to go up
-    this.rigidbody.AddForce(force.normalized * speed,ForceMode2D.Impulse);
+    rigidbodyB.AddForce(force.normalized * speed,ForceMode2D.Impulse);
+    rigidbodyB.velocity = rigidbodyB.velocity.normalized * speed;
 }
 
 void HandleEnemy(GameObject other)//Deletes enemy and applies damage

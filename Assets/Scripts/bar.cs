@@ -8,16 +8,6 @@ public class bar : MonoBehaviour
     public float maxBounceAngle = 75f;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
         void OnCollisionEnter2D(Collision2D collision)
 {
@@ -30,12 +20,12 @@ public class bar : MonoBehaviour
             float offset = paddlePosition.x - contactPoint.x;           //now we know how far is it from the center
             float width = collision.otherCollider.bounds.size.x / 2;    //only need half of bar width
             //calculation angle and rotation
-            float currentAngle = Vector2.SignedAngle(Vector2.up, ball.rigidbody.velocity);
+            float currentAngle = Vector2.SignedAngle(Vector2.up, ball.GetComponent<Rigidbody2D>().velocity);
             float bounceAngle = (offset / width) * this.maxBounceAngle;
             float newAngle = Mathf.Clamp(currentAngle + bounceAngle, -this.maxBounceAngle, this.maxBounceAngle);
             
             Quaternion rotation = Quaternion.AngleAxis(newAngle, Vector3.forward);
-            ball.rigidbody.velocity = rotation * Vector2.up * ball.rigidbody.velocity.magnitude;
+            ball.GetComponent<Rigidbody2D>().velocity = rotation * Vector2.up * ball.GetComponent<Rigidbody2D>().velocity.magnitude;
         }
 
 }
