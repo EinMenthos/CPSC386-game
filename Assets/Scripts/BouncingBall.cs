@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class BouncingBall : MonoBehaviour
 {
     EnemyManager em;
     public Rigidbody2D rigidbodyB {get; private set; }
     public float speed = 6f;
-
+    public int countEnemies = 0;
     
     private void Awake(){
         rigidbodyB = GetComponent<Rigidbody2D>();
@@ -45,6 +48,21 @@ void HandleEnemy(GameObject other)//Deletes enemy and applies damage
         else{
             Destroy(other);
             Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
+            countEnemies++;
+            Debug.Log("Enemies Killed: " + countEnemies);
+            //https://discussions.unity.com/t/how-to-check-which-scene-is-loaded-and-write-if-code-for-it/163399/2
+            Scene currentScene = SceneManager.GetActiveScene ();
+            string sceneName = currentScene.name;
+
+            if (sceneName == "game1"){
+                if (countEnemies == 15){
+                    //Debug.Log("All enemies were killed!!!");
+                    //https://gamedevbeginner.com/the-right-way-to-pause-the-game-in-unity/#pause_time_scale
+                    Time.timeScale = 0;
+                    //show the text on canvas.
+                }
+            }
+
         }
     }
 
