@@ -429,7 +429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e758e7a929e84457a97ff95fd26ca166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: game1
+  Scenebase: baseLv
+  SceneName: game1b
   SceneIndex: 0
 --- !u!1 &741562236
 GameObject:
@@ -871,6 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e758e7a929e84457a97ff95fd26ca166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scenebase: 
   SceneName: credits
   SceneIndex: 0
 --- !u!1 &1392480536
@@ -930,7 +932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: working game2
+  m_text: Endless Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1193,7 +1195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e758e7a929e84457a97ff95fd26ca166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: game2
+  Scenebase: baseLv
+  SceneName: game2b
   SceneIndex: 0
 --- !u!114 &1549557191
 MonoBehaviour:
@@ -1593,7 +1596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Start Game1
+  m_text: 'Time Battle
 
 '
   m_isRightToLeft: 0

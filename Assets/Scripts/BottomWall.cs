@@ -11,15 +11,16 @@ public class BottomWall : MonoBehaviour
     {
         Debug.Log("Trigger / bottom wall");
         if(collider.tag == "ball"){
-            Debug.Log("trigger-ball");
+            //Debug.Log("trigger-ball");
             SceneManager.LoadScene("gameover");
             //ballModifier = FindObjectOfType
         }
+        /*
         else{
             Debug.Log("trigger-bar");
 
         }
-
+*/
         //if(collider.tag == "Enemy")
             //HandleEnemy(collider.gameObject);
 
