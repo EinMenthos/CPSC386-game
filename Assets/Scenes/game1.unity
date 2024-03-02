@@ -3350,7 +3350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8302259900297822838, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: gameEndKill
-      value: 5
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 8302259900297822838, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: maxEnemiesSpawned

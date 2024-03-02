@@ -1,5 +1,3 @@
-//using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// Unity has an existing input system and a new one
@@ -13,19 +11,12 @@ public class InputExample : MonoBehaviour
 {
     [SerializeField]
     Rigidbody2D jumpingBody, movingBody;
-    //public Rigidbody2D rigidbodyB {get; private set; }
-
     [SerializeField]
     bool useForce = true;
-    [SerializeField]
-    //float moveSpeed = 3.0f;
-    float jumpPower = 6f, moveSpeed = 3.0f;
+    [SerializeField] float jumpPower = 6f, moveSpeed = 3.0f;
     float physicsModifier = 100f;
-
     Vector2 moveDir = Vector2.zero;
-
-    [SerializeField]
-    float waypointRadius = 7.18f;
+    [SerializeField] float waypointRadius = 7.18f;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -44,15 +35,7 @@ public class InputExample : MonoBehaviour
                 }
                     movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
             }
-            /*
-            
-            else    //it hit the walls
-                Debug.Log("Out");
-                */
         }
-        
-
-
     }
 
 
@@ -67,20 +50,18 @@ public class InputExample : MonoBehaviour
     void OnJump()
     {
         speed = jumpingBody.velocity.magnitude;
-        //Debug.Log(speed);
         if (speed == 0)
         {
-            //if(jumpingBody) jumpingBody.AddForce(Vector2.up*jumpPower,ForceMode2D.Impulse);   // this one will start the game when press space, but it will go up
             SetRandomTrajectory();  //this one will allow the ball to start randomly
         }
         
         //Debug.Log("jump");
     }
     
+    //created with professor's help
     private void SetRandomTrajectory(){
         Vector2 force = Vector2.up;
         force.x = Random.Range(-1f, 1f);
-        //force.y = 1f; //always going up   //not needed because I declared to go up
         jumpingBody.AddForce(force.normalized * jumpPower,ForceMode2D.Impulse);
         jumpingBody.velocity = jumpingBody.velocity.normalized * jumpPower;
     }

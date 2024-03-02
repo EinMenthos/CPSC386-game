@@ -1,11 +1,7 @@
-//using System.Collections;
-//using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//using UnityEngine.UI;
 using TMPro;
-
-
 
 [RequireComponent(typeof(UnitPool))]
 public class EnemyManager : MonoBehaviour
@@ -26,7 +22,6 @@ public class EnemyManager : MonoBehaviour
     highscore hs;
     clockController clockValue;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +41,6 @@ public class EnemyManager : MonoBehaviour
         {
             go = Instantiate(enemyPrefab, transform);
         }
-        //Todo: how could we alter this so enemies always spawn around the player?
         go.transform.position = new Vector3(Random.Range(-8, 8), Random.Range(-2, 3));
         curSpawned++;
 
@@ -57,7 +51,6 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        //Debug.Log("Enemies: " + curSpawned);
         if(curSpawned < maxEnemiesSpawned && timer > 1f/spawnsPerSecond)
         {
             SpawnEnemy();
@@ -72,7 +65,6 @@ public class EnemyManager : MonoBehaviour
 
     public void HandleEnemy(GameObject other)//Deletes enemy and applies damage
     {
-
         if(usePooling){
             //only happens at endless mode (game2)
             pool.pool.Release(other);
@@ -80,7 +72,6 @@ public class EnemyManager : MonoBehaviour
             curSpawned--;
             countEnemies++;
             txtPoints.text = countEnemies.ToString();
-            //Debug.Log("Saving score: ")
 
         }
         else{
@@ -88,27 +79,22 @@ public class EnemyManager : MonoBehaviour
             Destroy(other);
             Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
             countEnemies++;
-            //Debug.Log("Enemies Killed: " + countEnemies);
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
             if (sceneName == "game1"){
                 if (countEnemies == gameEndKill){
                     Debug.Log("All enemies were killed!!!");
-
                     string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
                     int minutes = int.Parse(parts[0]);
                     int seconds = int.Parse(parts[1]);
-                    Debug.Log("Loading best time: " + parts[0] + ":" + parts[1]);
                     int timeHS = minutes * 60 + seconds;
-                    //Debug.Log(clockValue.elapsedTime);
                     if (clockValue.elapsedTime < timeHS){
                         globalVariables.HSUpdated = true;
-                        //Debug.Log("updating HS");
                         minutes = Mathf.FloorToInt(clockValue.elapsedTime / 60f);
                         seconds = Mathf.FloorToInt(clockValue.elapsedTime % 60f);
                         string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
                         PlayerPrefs.SetString("TimeBattleHS", timeText);
-                        Debug.Log("HS updated!");
+                        Debug.Log("Time Battle record:" + timeText);
                         HSUpdate.gameObject.SetActive(true);
                     }
                     Time.timeScale = 0;                
