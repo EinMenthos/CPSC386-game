@@ -15,6 +15,7 @@ public class SceneLoader : MonoBehaviour
         }
         else{
             //SceneManager.LoadScene(SceneName);
+            Time.timeScale = 1;
             if(Scenebase == "") SceneManager.LoadScene(SceneName);
             else{
                 SceneManager.LoadScene(SceneName, LoadSceneMode.Single);

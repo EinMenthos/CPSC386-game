@@ -1235,7 +1235,7 @@ MonoBehaviour:
   movingBody: {fileID: 435849649}
   useForce: 0
   jumpPower: 8
-  moveSpeed: 6
+  moveSpeed: 5
   waypointRadius: 7.2
 --- !u!114 &727578732
 MonoBehaviour:
@@ -1250,6 +1250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clockText: {fileID: 1117352370}
+  elapsedTime: 0
 --- !u!1001 &764294384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3086,6 +3087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  scorePlayer: {fileID: 1117352370}
 --- !u!1001 &2142439081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3205,7 +3207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8302259900297822838, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: gameEndKill
-      value: 10
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 8302259900297822838, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: maxEnemiesSpawned

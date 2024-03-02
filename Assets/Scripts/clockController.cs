@@ -1,5 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class clockController : MonoBehaviour
 {
     public TMP_Text clockText;
     private bool clockRunning = false;
-    private float elapsedTime = 0f;
+    public float elapsedTime = 0f;
     
     // Start is called before the first frame update
     void Start()
@@ -33,14 +34,17 @@ public class clockController : MonoBehaviour
         }
     }
 
-        void UpdateClockText()
+    void UpdateClockText()
     {
         // Format the elapsed time as minutes and seconds
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
         string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-        // Update the clock text
+        //Update the clock text
         clockText.text = timeText;
+    }
+    public float ReturnClock(){
+        return elapsedTime;
     }
 }

@@ -1,5 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
+//using TMPro;
+//using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +9,10 @@ using UnityEngine.SceneManagement;
 public class BottomWall : MonoBehaviour
 {
 
+    // scoreValue;
+    void Start(){
+
+    }
     void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Trigger / bottom wall");

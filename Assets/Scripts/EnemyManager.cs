@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 using TMPro;
 
 
@@ -22,11 +22,16 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public TMP_Text txtClear;
     [SerializeField] public TMP_Text txtPoints;
 
+    highscore hs;
+    clockController clockValue;
+
 
     // Start is called before the first frame update
     void Start()
     {
         pool = GetComponent<UnitPool>();
+        hs = FindObjectOfType<highscore>();
+        clockValue = FindObjectOfType<clockController>();
     }
 
     GameObject SpawnEnemy()
@@ -58,7 +63,7 @@ public class EnemyManager : MonoBehaviour
             timer = 0;
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
-            if (sceneName == "game2b"){
+            if (sceneName == "game2"){
                 Debug.Log("enemies on screen: " + curSpawned);
             }
         }
@@ -68,27 +73,45 @@ public class EnemyManager : MonoBehaviour
     {
 
         if(usePooling){
+            //only happens at endless mode (game2)
             pool.pool.Release(other);
             Debug.Log("releasing...");      //releasing will put it on standby for further usage.
             curSpawned--;
             countEnemies++;
             txtPoints.text = countEnemies.ToString();
+            //Debug.Log("Saving score: ")
+
         }
         else{
+            //only happens at time battle (game1)
             Destroy(other);
             Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
             countEnemies++;
-            Debug.Log("Enemies Killed: " + countEnemies);
-            //https://discussions.unity.com/t/how-to-check-which-scene-is-loaded-and-write-if-code-for-it/163399/2
-
+            //Debug.Log("Enemies Killed: " + countEnemies);
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
-            if (sceneName == "game1b"){
+            if (sceneName == "game1"){
                 if (countEnemies == gameEndKill){
-                    //Debug.Log("All enemies were killed!!!");
-                    Time.timeScale = 0;
-                    //show the text on canvas.
-                    txtClear.gameObject.SetActive(true);
+                    Debug.Log("All enemies were killed!!!");
+
+                    string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
+                    int minutes = int.Parse(parts[0]);
+                    int seconds = int.Parse(parts[1]);
+                    Debug.Log("Loading best time: " + parts[0] + ":" + parts[1]);
+                    int timeHS = minutes * 60 + seconds;
+                    //Debug.Log(clockValue.elapsedTime);
+                    if (clockValue.elapsedTime < timeHS){
+                        Debug.Log("updating HS");
+                        minutes = Mathf.FloorToInt(clockValue.elapsedTime / 60f);
+                        seconds = Mathf.FloorToInt(clockValue.elapsedTime % 60f);
+                        string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+                        PlayerPrefs.SetString("TimeBattleHS", timeText);
+                        Debug.Log("HS updated!");
+                    }
+
+                    Time.timeScale = 0;                
+                    txtClear.gameObject.SetActive(true); //show the text on canvas.
+
                 }
             }
 

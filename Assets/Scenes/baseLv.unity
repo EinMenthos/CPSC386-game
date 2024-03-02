@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 940640135}
   m_Layer: 0
   m_Name: Static Sprite - wallB
-  m_TagString: walls
+  m_TagString: Pit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

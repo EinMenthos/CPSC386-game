@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class bar : MonoBehaviour
 {
-    public new Rigidbody2D rigidbody {get; private set; }
+    //public new Rigidbody2D rigidbody {get; private set; }
+    public Rigidbody2D rigidbody {get; private set; }
     public float maxBounceAngle = 75f;
 
     // Start is called before the first frame update
