@@ -1,20 +1,16 @@
-//using System.Collections;
-//using System.Collections.Generic;
 using UnityEngine;
 
 public class bar : MonoBehaviour
 {
-    //public new Rigidbody2D rigidbody {get; private set; }
     public Rigidbody2D rigidbody {get; private set; }
     public float maxBounceAngle = 75f;
 
-    // Start is called before the first frame update
 
-        void OnCollisionEnter2D(Collision2D collision)
+    //professor helped me doing it
+    void OnCollisionEnter2D(Collision2D collision)
 {
-            BouncingBall ball = collision.gameObject.GetComponent<BouncingBall>();
+        BouncingBall ball = collision.gameObject.GetComponent<BouncingBall>();
         if (ball != null){
-            //Debug.Log("ball hit bar");
             //calculate offset based on the position of the bar and the point wher the ball hits the bar
             Vector3 paddlePosition = this.transform.position;           //bar position is centered
             Vector2 contactPoint = collision.GetContact(0).point;       //where the ball hits the bar

@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
+//using Unity.VisualScripting;
 
 
 public class highscore : MonoBehaviour
 {
     
-    string endlessHS = "";
+    //string endlessHS = "";
     //string timeHS = "";
     /*string testEndless = "player1    1" + System.Environment.NewLine +
             "player2    2" + System.Environment.NewLine +
@@ -29,29 +29,21 @@ public class highscore : MonoBehaviour
     void Start()
     {
         //create keys in PlayerPrefs if it does not exists
-        if(!PlayerPrefs.HasKey("EndlessGameHS")){
-            Debug.Log("Creating PlayerPrefs.EndlessGameHS");
-            SetPlayerPrefs("EndlessGameHS","0");
-            txtEndlessGame.text = endlessHS;
-        }
-        else{
-            Debug.Log("Loading PlayerPrefs.EndlessGameHS");
-            endlessHS = GetPlayerPrefs("EndlessGameHS");
-            txtEndlessGame.text = endlessHS;
-        }
-        if(!PlayerPrefs.HasKey("TimeBattleHS")){
-            Debug.Log("Creating PlayerPrefs.TimeBattleHS");
-            SetPlayerPrefs("TimeBattleHS", "10:00");
-            txtTimeBattle.text = "10:00";
-        }
-        else{
-            Debug.Log("Loading PlayerPrefs.TimeBattleHS");
-            txtTimeBattle.text = GetPlayerPrefs("TimeBattleHS");
-        }
+        LoadPlayerPrefs();
+        //globalVariables.HSUpdated = true;
+        //Debug.Log(globalVariables.HSUpdated);
     }
 
     //https://docs.unity3d.com/ScriptReference/PlayerPrefs.html
     //macos save it at /Users/danielwu/Library/Preferences/unity.WuCompany.Project1.plist
+    
+    public void LoadPlayerPrefs(){
+        Debug.Log("Loading PlayerPrefs.EndlessGameHS");
+        txtEndlessGame.text = GetPlayerPrefs("EndlessGameHS");;
+        Debug.Log("Loading PlayerPrefs.TimeBattleHS");
+        txtTimeBattle.text = GetPlayerPrefs("TimeBattleHS");
+    }
+    
     public void SetPlayerPrefs(string KeyName, string Value)
     {
         PlayerPrefs.SetString(KeyName, Value);

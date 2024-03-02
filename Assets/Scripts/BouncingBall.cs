@@ -1,5 +1,3 @@
-//using System.Collections;
-//using System.Collections.Generic;
 using TMPro;
 //using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
@@ -56,6 +54,7 @@ public class BouncingBall : MonoBehaviour
                 //Debug.Log(clockValue.elapsedTime);
                 
                 if (int.Parse(scorePlayer.text) > scoreHS){
+                    globalVariables.HSUpdated = true;
                     //Debug.Log("updating score HS");
                     PlayerPrefs.SetString("EndlessGameHS", scorePlayer.text);
                     Debug.Log("SCORE updated!");

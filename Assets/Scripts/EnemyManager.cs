@@ -21,6 +21,7 @@ public class EnemyManager : MonoBehaviour
     public int gameEndKill = 24;
     [SerializeField] public TMP_Text txtClear;
     [SerializeField] public TMP_Text txtPoints;
+    public TMP_Text HSUpdate;
 
     highscore hs;
     clockController clockValue;
@@ -101,17 +102,17 @@ public class EnemyManager : MonoBehaviour
                     int timeHS = minutes * 60 + seconds;
                     //Debug.Log(clockValue.elapsedTime);
                     if (clockValue.elapsedTime < timeHS){
-                        Debug.Log("updating HS");
+                        globalVariables.HSUpdated = true;
+                        //Debug.Log("updating HS");
                         minutes = Mathf.FloorToInt(clockValue.elapsedTime / 60f);
                         seconds = Mathf.FloorToInt(clockValue.elapsedTime % 60f);
                         string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
                         PlayerPrefs.SetString("TimeBattleHS", timeText);
                         Debug.Log("HS updated!");
+                        HSUpdate.gameObject.SetActive(true);
                     }
-
                     Time.timeScale = 0;                
                     txtClear.gameObject.SetActive(true); //show the text on canvas.
-
                 }
             }
 
