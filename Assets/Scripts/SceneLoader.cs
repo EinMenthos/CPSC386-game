@@ -12,7 +12,7 @@ public class SceneLoader : MonoBehaviour
         //globalVariables.HSUpdated flag is set during game1 and game1.
         //Should be disabled before starting another game
         if(SceneName == "game1" || SceneName == "game2"){
-            globalVariables.HSUpdated = false;
+            GlobalVariables.HSUpdated = false;
         }
         if(SceneName == "")
         {

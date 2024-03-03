@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class soundController : MonoBehaviour
+public class SoundController : MonoBehaviour
 {
     public AudioSource backgroundMusic;    
 
@@ -12,6 +12,6 @@ public class soundController : MonoBehaviour
     }
 
     public void SwitchGlobal(){
-        backgroundMusic.mute = globalVariables.muteConfig;
+        backgroundMusic.mute = GlobalVariables.muteConfig;
     }
 }

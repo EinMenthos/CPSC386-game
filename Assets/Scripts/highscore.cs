@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 
 
-public class highscore : MonoBehaviour
+public class Highscore : MonoBehaviour
 {
     [SerializeField] public TMP_Text txtEndlessGame;
     [SerializeField] public TMP_Text txtTimeBattle;

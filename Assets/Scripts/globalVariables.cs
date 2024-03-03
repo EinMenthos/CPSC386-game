@@ -1,6 +1,6 @@
 using System;
 
-public class globalVariables
+public class GlobalVariables
 {
     public static Boolean muteConfig {get; set;}
     public static int highScore {get; set;}

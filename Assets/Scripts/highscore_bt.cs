@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class highscore_bt : MonoBehaviour
+public class Highscore_bt : MonoBehaviour
 {
     public TMP_Text txtEndlessGame;
     public TMP_Text txtTimeBattle;

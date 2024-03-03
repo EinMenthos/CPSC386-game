@@ -1,12 +1,12 @@
 using TMPro;
 using UnityEngine;
 
-public class gameover : MonoBehaviour
+public class Gameover : MonoBehaviour
 {
     public TMP_Text HSText;
     void Start()
     {
-        if (globalVariables.HSUpdated){
+        if (GlobalVariables.HSUpdated){
             Debug.Log("if:" + HSText.enabled);
             HSText.gameObject.SetActive(true);
         }

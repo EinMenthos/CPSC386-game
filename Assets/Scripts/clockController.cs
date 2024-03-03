@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class clockController : MonoBehaviour
+public class ClockController : MonoBehaviour
 {
     public TMP_Text clockText;
     private bool clockRunning = false;

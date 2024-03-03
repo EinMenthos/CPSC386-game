@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class bar : MonoBehaviour
+public class Bar : MonoBehaviour
 {
     public Rigidbody2D rigidbody {get; private set; }
     public float maxBounceAngle = 75f;

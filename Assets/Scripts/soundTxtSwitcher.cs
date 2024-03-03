@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class soundTxtSwitcher : MonoBehaviour
+public class SoundTxtSwitcher : MonoBehaviour
 {
     //this one will allow me to input data directly from Unity
     public Button b1;
@@ -13,16 +13,16 @@ public class soundTxtSwitcher : MonoBehaviour
     void Start()
     {
         // Update button text based on initial mute state
-        UpdateButtonText(globalVariables.muteConfig);
+        UpdateButtonText(GlobalVariables.muteConfig);
     }
 
     public void SwitchSound()
     {
         // Toggle mute state
-        globalVariables.muteConfig = !globalVariables.muteConfig;
+        GlobalVariables.muteConfig = !GlobalVariables.muteConfig;
 
         // Update button text based on new mute state
-        UpdateButtonText(globalVariables.muteConfig);
+        UpdateButtonText(GlobalVariables.muteConfig);
     }
 
     void UpdateButtonText(bool soundOn)

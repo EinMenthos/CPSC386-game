@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class highscore_init : MonoBehaviour
+public class Highscore_init : MonoBehaviour
 {
     void Start()
     {

@@ -46,7 +46,7 @@ public class BouncingBall : MonoBehaviour
             if (sceneName == "game2"){
                 int scoreHS = int.Parse(PlayerPrefs.GetString("EndlessGameHS"));
                 if (int.Parse(scorePlayer.text) > scoreHS){
-                    globalVariables.HSUpdated = true;
+                    GlobalVariables.HSUpdated = true;
                     PlayerPrefs.SetString("EndlessGameHS", scorePlayer.text);
                     Debug.Log("SCORE updated: " + scorePlayer.text);
                 }

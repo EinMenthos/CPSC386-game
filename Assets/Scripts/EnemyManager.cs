@@ -19,15 +19,15 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public TMP_Text txtPoints;
     public TMP_Text HSUpdate;
 
-    highscore hs;
-    clockController clockValue;
+    Highscore hs;
+    ClockController clockValue;
 
     // Start is called before the first frame update
     void Start()
     {
         pool = GetComponent<UnitPool>();
-        hs = FindObjectOfType<highscore>();
-        clockValue = FindObjectOfType<clockController>();
+        hs = FindObjectOfType<Highscore>();
+        clockValue = FindObjectOfType<ClockController>();
     }
 
     GameObject SpawnEnemy()
@@ -89,7 +89,7 @@ public class EnemyManager : MonoBehaviour
                     int seconds = int.Parse(parts[1]);
                     int timeHS = minutes * 60 + seconds;
                     if (clockValue.elapsedTime < timeHS){
-                        globalVariables.HSUpdated = true;
+                        GlobalVariables.HSUpdated = true;
                         minutes = Mathf.FloorToInt(clockValue.elapsedTime / 60f);
                         seconds = Mathf.FloorToInt(clockValue.elapsedTime % 60f);
                         string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
