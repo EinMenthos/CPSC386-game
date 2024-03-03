@@ -22,20 +22,20 @@ public class InputExample : MonoBehaviour
     void FixedUpdate()
     {
         if(movingBody) 
-        if(useForce)    //need to set the flag        
-            movingBody.AddForce(moveDir*moveSpeed*Time.deltaTime*physicsModifier, ForceMode2D.Force);
-        else{   //we are mainly using this route
-            //get ball position to avoid it going into the walls
-            Vector2 ballPos = movingBody.position+(moveDir*moveSpeed*Time.deltaTime);
-            if (ballPos.x > -waypointRadius && ballPos.x < waypointRadius) {
-                speed = jumpingBody.velocity.magnitude;
-                if (speed == 0)
-                {
-                    jumpingBody.MovePosition(jumpingBody.position+(moveDir*moveSpeed*Time.deltaTime));     //ball will move together with the bar
+            if(useForce)    //need to set the flag        
+                movingBody.AddForce(moveDir*moveSpeed*Time.deltaTime*physicsModifier, ForceMode2D.Force);
+            else{   //we are mainly using this route
+                //get ball position to avoid it going into the walls
+                Vector2 ballPos = movingBody.position+(moveDir*moveSpeed*Time.deltaTime);
+                if (ballPos.x > -waypointRadius && ballPos.x < waypointRadius) {
+                    speed = jumpingBody.velocity.magnitude;
+                    if (speed == 0)
+                    {
+                        jumpingBody.MovePosition(jumpingBody.position+(moveDir*moveSpeed*Time.deltaTime));     //ball will move together with the bar
+                    }
+                        movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
                 }
-                    movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
             }
-        }
     }
 
 

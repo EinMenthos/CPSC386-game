@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 93993857}
   - component: {fileID: 93993856}
   m_Layer: 5
-  m_Name: ImageBg
+  m_Name: bgImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +372,7 @@ Transform:
   m_GameObject: {fileID: 224392242}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -211.2721, y: 25.441223, z: 1.2047988}
+  m_LocalPosition: {x: 2, y: -91, z: 1.2047988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -493,7 +493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.1957, y: 413}
+  m_AnchoredPosition: {x: 9.1957, y: 452}
   m_SizeDelta: {x: 635.7106, y: 354.224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467184403
@@ -519,6 +519,8 @@ MonoBehaviour:
   m_text: 'In this game, the objective is to destroy all the blocks without letting
     the ball fall into the pit. The ball will bounce differently depending on where
     it hits the paddle.
+
+    Game developed to run at FULL HD (1920 x 1080) resolution.
 
 '
   m_isRightToLeft: 0

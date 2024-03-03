@@ -24,13 +24,14 @@ public class BouncingBall : MonoBehaviour
         rigidbodyB.velocity = rigidbodyB.velocity.normalized * speed;
     }
 
+/*
     private void SetRandomTrajectory(){
         Vector2 force = Vector2.up;
         force.x = Random.Range(-1f, 1f);
         rigidbodyB.AddForce(force.normalized * speed,ForceMode2D.Impulse);
         rigidbodyB.velocity = rigidbodyB.velocity.normalized * speed;
     }
-
+*/
     void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Trigger-Enemy");

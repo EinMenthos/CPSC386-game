@@ -9,6 +9,7 @@ public class Bar : MonoBehaviour
     //professor helped me doing it
     void OnCollisionEnter2D(Collision2D collision)
 {
+    //video used as a reference: https://www.youtube.com/watch?v=RYG8UExRkhA
         BouncingBall ball = collision.gameObject.GetComponent<BouncingBall>();
         if (ball != null){
             //calculate offset based on the position of the bar and the point wher the ball hits the bar

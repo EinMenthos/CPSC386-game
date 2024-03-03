@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 93993857}
   - component: {fileID: 93993856}
   m_Layer: 5
-  m_Name: Image
+  m_Name: bgImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 257580472}
   - component: {fileID: 257580471}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button-Clear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1134,7 +1134,7 @@ GameObject:
   - component: {fileID: 1385668279}
   - component: {fileID: 1385668278}
   m_Layer: 0
-  m_Name: HighScoreController
+  m_Name: HighscoreController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
