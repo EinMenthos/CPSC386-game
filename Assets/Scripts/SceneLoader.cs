@@ -32,4 +32,8 @@ public class SceneLoader : MonoBehaviour
         }
 
     }
+    public void QuitApp(){
+        Application.Quit();
+        Debug.Log("Quitting...");
+    }
 }

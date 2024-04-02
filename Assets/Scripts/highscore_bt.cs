@@ -11,5 +11,6 @@ public class Highscore_bt : MonoBehaviour
         txtEndlessGame.text = "0";
         PlayerPrefs.SetString("TimeBattleHS", "10:00");
         txtTimeBattle.text = "10:00";
+        Debug.Log("Highscore cleared!");
     }
 }

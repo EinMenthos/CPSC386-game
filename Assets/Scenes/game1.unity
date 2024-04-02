@@ -1238,6 +1238,7 @@ MonoBehaviour:
   jumpPower: 8
   moveSpeed: 5
   waypointRadius: 7.2
+  backgroundMusic: {fileID: 1501285549}
 --- !u!114 &727578732
 MonoBehaviour:
   m_ObjectHideFlags: 0

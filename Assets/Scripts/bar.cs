@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bar : MonoBehaviour
 {
-    public Rigidbody2D rigidbody {get; private set; }
+    //public Rigidbody2D rigidbody {get; private set; }
     public float maxBounceAngle = 75f;
 
 

@@ -19,7 +19,7 @@ public class Highscore : MonoBehaviour
     
     public void LoadPlayerPrefs(){
         Debug.Log("Loading PlayerPrefs.EndlessGameHS");
-        txtEndlessGame.text = PlayerPrefs.GetString("EndlessGameHS");;
+        txtEndlessGame.text = PlayerPrefs.GetString("EndlessGameHS");
         Debug.Log("Loading PlayerPrefs.TimeBattleHS");
         txtTimeBattle.text = PlayerPrefs.GetString("TimeBattleHS");
     }

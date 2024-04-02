@@ -6,6 +6,8 @@ using UnityEngine;
 /// then add "Input System" from the Unity Registry
 /// </summary>
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class InputExample : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class InputExample : MonoBehaviour
     float physicsModifier = 100f;
     Vector2 moveDir = Vector2.zero;
     [SerializeField] float waypointRadius = 7.18f;
+    [SerializeField] AudioSource backgroundMusic;    
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -31,8 +35,10 @@ public class InputExample : MonoBehaviour
                     speed = jumpingBody.velocity.magnitude;
                     if (speed == 0)
                     {
-                        jumpingBody.MovePosition(jumpingBody.position+(moveDir*moveSpeed*Time.deltaTime));     //ball will move together with the bar
+                        //ball will move together with the bar
+                        jumpingBody.MovePosition(jumpingBody.position+(moveDir*moveSpeed*Time.deltaTime));     
                     }
+                        //bar will move no matter the speed of the ball
                         movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
                 }
             }
@@ -49,13 +55,29 @@ public class InputExample : MonoBehaviour
 
     void OnJump()
     {
+        Debug.Log("Spacebar pressed");
         speed = jumpingBody.velocity.magnitude;
         if (speed == 0)
         {
             SetRandomTrajectory();  //this one will allow the ball to start randomly
         }
-        
-        //Debug.Log("jump");
+        else{
+            Scene currentScene = SceneManager.GetActiveScene ();
+            string sceneName = currentScene.name;
+            if(sceneName == "game1" || sceneName == "game2"){
+                //Time.timeScale ? Time.timeScale = 0, Time.timeScale = 1;
+                if (Time.timeScale == 1) {
+                    Time.timeScale = 0;
+                    if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = true;
+                }
+                else{
+                    Time.timeScale = 1;
+                    if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = false;
+                } 
+        }
+        }
+
+
     }
     
     //created with professor's help
