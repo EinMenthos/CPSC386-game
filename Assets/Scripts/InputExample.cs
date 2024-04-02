@@ -1,3 +1,5 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 /// <summary>
 /// Unity has an existing input system and a new one
@@ -20,6 +22,7 @@ public class InputExample : MonoBehaviour
     Vector2 moveDir = Vector2.zero;
     [SerializeField] float waypointRadius = 7.18f;
     [SerializeField] AudioSource backgroundMusic;    
+    [SerializeField] TMP_Text tPause;
 
 
     // Update is called once per frame
@@ -69,10 +72,12 @@ public class InputExample : MonoBehaviour
                 if (Time.timeScale == 1) {
                     Time.timeScale = 0;
                     if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = true;
+                    tPause.gameObject.SetActive(true);
                 }
                 else{
                     Time.timeScale = 1;
                     if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = false;
+                    tPause.gameObject.SetActive(false);
                 } 
         }
         }
