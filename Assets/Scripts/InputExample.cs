@@ -20,7 +20,7 @@ public class InputExample : MonoBehaviour
     [SerializeField] float jumpPower = 6f, moveSpeed = 3.0f;
     float physicsModifier = 100f;
     Vector2 moveDir = Vector2.zero;
-    [SerializeField] float waypointRadius = 7.18f;
+    [SerializeField] public float waypointRadius = 7.18f;
     [SerializeField] AudioSource backgroundMusic;    
     [SerializeField] TMP_Text tPause;
 
@@ -67,7 +67,7 @@ public class InputExample : MonoBehaviour
         else{
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
-            if(sceneName == "game1" || sceneName == "game2"){
+            if(sceneName == "game1" || sceneName == "game2" || sceneName == "game2b"){
                 //Time.timeScale ? Time.timeScale = 0, Time.timeScale = 1;
                 if (Time.timeScale == 1) {
                     Time.timeScale = 0;

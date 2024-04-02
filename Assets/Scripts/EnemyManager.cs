@@ -6,7 +6,7 @@ using TMPro;
 [RequireComponent(typeof(UnitPool))]
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] int maxEnemiesSpawned = 10;
+    [SerializeField] public int maxEnemiesSpawned = 10;
     public float spawnsPerSecond = 0.5f;
     [SerializeField] public bool usePooling = false;
     [SerializeField] GameObject enemyPrefab;
