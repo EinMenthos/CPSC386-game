@@ -14,6 +14,11 @@ public class VolumeSlider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //have to relink with actual music
+        if (backgroundMusic == null){
+            Debug.Log("Returning from sub-scene: Relink to music object");
+            backgroundMusic = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioSource>();
+        }
         CheckVolumePrefs();
     }
 

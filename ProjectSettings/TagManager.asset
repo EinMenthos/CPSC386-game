@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - ball
   - Pit
+  - audio
   layers:
   - Default
   - TransparentFX

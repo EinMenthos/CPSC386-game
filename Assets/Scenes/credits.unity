@@ -861,6 +861,7 @@ GameObject:
   - component: {fileID: 1904118764}
   - component: {fileID: 1904118763}
   - component: {fileID: 1904118765}
+  - component: {fileID: 1904118766}
   m_Layer: 0
   m_Name: bgMusic
   m_TagString: Untagged
@@ -875,7 +876,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904118762}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6231da9e6dcca49cbbd2a4391f616eae, type: 3}
@@ -992,6 +993,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 1904118763}
+--- !u!114 &1904118766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904118762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3477666b1ca6346d78ffd3d514d1cf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNames:
+  - option
+  instanceName: option
 --- !u!1 &2022206594
 GameObject:
   m_ObjectHideFlags: 0
