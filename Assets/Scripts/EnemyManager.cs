@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -17,10 +18,18 @@ public class EnemyManager : MonoBehaviour
     public int gameEndKill = 24;
     [SerializeField] public TMP_Text txtClear;
     [SerializeField] public TMP_Text txtPoints;
+    
+    //High score
     public TMP_Text HSUpdate;
-
     Highscore hs;
     ClockController clockValue;
+/*
+    //fade in effect while destroying/disabling it
+    public float fadeDelay = 0.3f;
+    public float alphaValue = 0;
+    public bool destroyGameObject = false;
+    SpriteRenderer spriteRenderer;
+*/
 
     // Start is called before the first frame update
     void Start()
@@ -63,9 +72,30 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+/*
+    IEnumerator FadeTo(float aValue, float fadeTime, GameObject other, bool usePooling){
+        Debug.Log("FadeTo");
+        float alpha = spriteRenderer.color.a;
+        for (float t = 0.0f; t < 1.0f; t+= Time.deltaTime / fadeTime){
+            Debug.Log("Fading...");
+            Color newColor = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, Mathf.Lerp(alpha, aValue, t));
+            spriteRenderer.color = newColor;
+            yield return null;
+        }
+        if (usePooling)
+            pool.pool.Release(other);
+
+        else
+            Destroy(other);
+            //gameObject.SetActive(false);
+    }
+ */
     public void HandleEnemy(GameObject other)//Deletes enemy and applies damage
     {
+        //fade effect
+        //spriteRenderer = GetComponent<SpriteRenderer>();
         if(usePooling){
+            //StartCoroutine(FadeTo(alphaValue, fadeDelay, other, usePooling));
             //only happens at endless mode (game2)
             pool.pool.Release(other);
             Debug.Log("releasing...");      //releasing will put it on standby for further usage.
@@ -75,6 +105,7 @@ public class EnemyManager : MonoBehaviour
 
         }
         else{
+            //StartCoroutine(FadeTo(alphaValue, fadeDelay, other, usePooling));
             //only happens at time battle (game1)
             Destroy(other);
             Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
@@ -105,4 +136,5 @@ public class EnemyManager : MonoBehaviour
         }
         
     }
+
 }

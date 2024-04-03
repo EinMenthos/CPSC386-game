@@ -67,7 +67,7 @@ public class InputExample : MonoBehaviour
         else{
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
-            if(sceneName == "game1" || sceneName == "game2" || sceneName == "game2b"){
+            if(sceneName == "game1" || sceneName == "game2" || sceneName == "game1b" || sceneName == "game2b"){
                 //Time.timeScale ? Time.timeScale = 0, Time.timeScale = 1;
                 if (Time.timeScale == 1) {
                     Time.timeScale = 0;
