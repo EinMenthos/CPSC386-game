@@ -6,7 +6,22 @@ public class ClockController : MonoBehaviour
     public TMP_Text clockText;
     private bool clockRunning = false;
     public float elapsedTime = 0f;
+    //private float previousTime = 0f;
 
+
+    void Start(){
+        if(PlayerPrefs.HasKey("TimeBattleActual")){
+            Time.timeScale = 1;
+
+            elapsedTime = PlayerPrefs.GetFloat("TimeBattleActual");
+            PlayerPrefs.SetFloat("TimeBattleActual", 0f);
+            Debug.Log("restoring previous score: " + elapsedTime);
+            int minutes = Mathf.FloorToInt(elapsedTime / 60f);
+            int seconds = Mathf.FloorToInt(elapsedTime % 60f);
+            string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+            clockText.text = timeText;
+        }
+    }
     // Update is called once per frame
     void Update()
     {

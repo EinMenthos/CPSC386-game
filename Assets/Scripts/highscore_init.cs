@@ -17,5 +17,9 @@ public class Highscore_init : MonoBehaviour
             Debug.Log("Creating PlayerPrefs.TimeBattleHS");
             PlayerPrefs.SetString("TimeBattleHS", "10:00");
         }
+        if(!PlayerPrefs.HasKey("TimeBattleActual")){
+            Debug.Log("Creating PlayerPrefs.TimeBattleActual");
+            PlayerPrefs.SetFloat("TimeBattleActual", 0f);
+        }
     }
 }

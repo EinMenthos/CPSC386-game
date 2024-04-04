@@ -26,6 +26,13 @@ public class InputExample : MonoBehaviour
     public TMP_Text tClear;
 
 
+    void Start(){
+        //have to relink with actual music due to transition of game1 to game1b
+        if (backgroundMusic == null){
+            Debug.Log("Button: Creating link to original AudioSource Object");
+            backgroundMusic = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioSource>();
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {

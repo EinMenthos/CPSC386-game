@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 196890375}
   - component: {fileID: 196890374}
   m_Layer: 0
-  m_Name: Static Sprite - wallT (2)
+  m_Name: Static Sprite - b2
   m_TagString: walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,11 +483,11 @@ Transform:
   m_GameObject: {fileID: 196890373}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.22, y: -1.22, z: 0}
+  m_LocalPosition: {x: -3.5896559, y: -1.76, z: 0.0033322212}
   m_LocalScale: {x: 2, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1109497006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &197910372 stripped
 Transform:
@@ -965,8 +965,8 @@ RectTransform:
   m_Children:
   - {fileID: 181756220}
   - {fileID: 1167578188}
-  - {fileID: 1117352369}
   - {fileID: 1475854018}
+  - {fileID: 1117352369}
   - {fileID: 323300870}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 499081636}
   - component: {fileID: 499081635}
   m_Layer: 0
-  m_Name: Static Sprite - wallT (1)
+  m_Name: Static Sprite - b1
   m_TagString: walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1211,11 +1211,11 @@ Transform:
   m_GameObject: {fileID: 499081634}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -1.22, z: 0}
+  m_LocalPosition: {x: 0.6403438, y: -1.76, z: 0.0033322212}
   m_LocalScale: {x: 2, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1109497006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &508108447 stripped
 Transform:
@@ -2055,6 +2055,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}
   m_PrefabInstance: {fileID: 1892154888}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1109497004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1109497006}
+  - component: {fileID: 1109497005}
+  m_Layer: 0
+  m_Name: barrier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1109497005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109497004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a700de5a92153459b887dfd3940f4330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {x: -6.5, y: 0, z: 0}
+  - {x: 5, y: 0, z: 0}
+  moveSpeed: 3
+  waitTime: 1
+  waypointRadius: 3
+--- !u!4 &1109497006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109497004}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6303438, y: 0, z: -0.0033322212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 499081638}
+  - {fileID: 196890377}
+  - {fileID: 1214655356}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1117352368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,7 +2394,7 @@ GameObject:
   - component: {fileID: 1214655354}
   - component: {fileID: 1214655353}
   m_Layer: 0
-  m_Name: Static Sprite - wallT (3)
+  m_Name: Static Sprite - b3
   m_TagString: walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2480,11 +2533,11 @@ Transform:
   m_GameObject: {fileID: 1214655352}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.26, y: -1.22, z: 0}
+  m_LocalPosition: {x: 4.890344, y: -1.76, z: 0.0033322212}
   m_LocalScale: {x: 2, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1109497006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1231023972
 GameObject:
@@ -2603,6 +2656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432422637}
   - component: {fileID: 1432422636}
+  - component: {fileID: 1432422638}
   m_Layer: 0
   m_Name: bgImg
   m_TagString: Untagged
@@ -2681,6 +2735,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1432422638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432422635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3477666b1ca6346d78ffd3d514d1cf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNames: []
+  instanceName: game1
 --- !u!1 &1475854017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,9 +3037,10 @@ GameObject:
   - component: {fileID: 1501285550}
   - component: {fileID: 1501285549}
   - component: {fileID: 1501285551}
+  - component: {fileID: 1501285552}
   m_Layer: 0
   m_Name: bgMusic
-  m_TagString: Untagged
+  m_TagString: audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3100,6 +3169,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 1501285549}
+--- !u!114 &1501285552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501285548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3477666b1ca6346d78ffd3d514d1cf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNames:
+  - game1b
+  instanceName: game1
 --- !u!4 &1516531643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}
@@ -4196,6 +4280,4 @@ SceneRoots:
   - {fileID: 1501285550}
   - {fileID: 1432422637}
   - {fileID: 2003427500}
-  - {fileID: 499081638}
-  - {fileID: 196890377}
-  - {fileID: 1214655356}
+  - {fileID: 1109497006}

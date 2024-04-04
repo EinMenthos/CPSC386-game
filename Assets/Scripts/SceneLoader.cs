@@ -10,8 +10,11 @@ public class SceneLoader : MonoBehaviour
     public string Scenebase = "";
     public string SceneName = "";
     public bool GoNextScene;
+    //https://docs.unity3d.com/ScriptReference/EditorGUI.BeginDisabledGroup.html
+    //public bool disableTransition = false;
     public Animator transition;
     public float transitionTime = 1f;
+
 
     public void LoadScene()
     {
@@ -21,7 +24,7 @@ public class SceneLoader : MonoBehaviour
             GlobalVariables.HSUpdated = false;
         }
         //if game is paused, just skip animation since it will not work
-        if (Time.timeScale == 1){
+        if (Time.timeScale == 1 && transition != null){
             StartCoroutine(TransitionLevel());
         }
         else{
@@ -47,20 +50,24 @@ public class SceneLoader : MonoBehaviour
         if(GoNextScene)
             {
                 //SceneManager.LoadScene(SceneIndex);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+                Debug.Log("Loading Next Level");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1, LoadSceneMode.Single);
+                SceneManager.LoadScene("baseLv", LoadSceneMode.Additive);
+            }
+        else{
+            //the game might be paused at start. Should start it.
+            Time.timeScale = 1;
+            if(Scenebase == "") {
+                SceneManager.LoadScene(SceneName);
             }
             else{
-                //the game might be paused at start. Should start it.
+                //2 scenes used to create each level.
+                SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
+                SceneManager.LoadScene(Scenebase, LoadSceneMode.Additive);
                 Time.timeScale = 1;
-                if(Scenebase == "") {
-                    SceneManager.LoadScene(SceneName);
-                }
-                else{
-                    //2 scenes used to create each level.
-                    SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
-                    SceneManager.LoadScene(Scenebase, LoadSceneMode.Additive);
-                }
+
             }
+        }
     }
     public void QuitApp(){
         Application.Quit();

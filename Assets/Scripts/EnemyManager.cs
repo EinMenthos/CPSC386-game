@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UnitPool))]
 public class EnemyManager : MonoBehaviour
@@ -18,6 +19,9 @@ public class EnemyManager : MonoBehaviour
     public int gameEndKill = 24;
     [SerializeField] public TMP_Text txtClear;
     [SerializeField] public TMP_Text txtPoints;
+    
+    //link to next button
+    [SerializeField] public GameObject btNextLv;
     
     //High score
     public TMP_Text HSUpdate;
@@ -37,6 +41,11 @@ public class EnemyManager : MonoBehaviour
         pool = GetComponent<UnitPool>();
         hs = FindObjectOfType<Highscore>();
         clockValue = FindObjectOfType<ClockController>();
+    }
+
+    void Awake(){
+        //txtEndlessGame.text = PlayerPrefs.GetString("EndlessGameHS");
+
     }
 
     GameObject SpawnEnemy()
@@ -113,7 +122,25 @@ public class EnemyManager : MonoBehaviour
             countEnemies++;
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
-            if (sceneName.Contains("game1")){
+            if (sceneName == "game1"){
+                if (countEnemies == gameEndKill){
+                    Debug.Log("All enemies were killed in game1!!!");
+                    //string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
+                    //int minutes = int.Parse(parts[0]);
+                    //int seconds = int.Parse(parts[1]);
+                    //int timeHS = minutes * 60 + seconds;
+                    //minutes = Mathf.FloorToInt(clockValue.elapsedTime / 60f);
+                    //seconds = Mathf.FloorToInt(clockValue.elapsedTime % 60f);
+                    //string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
+                    PlayerPrefs.SetFloat("TimeBattleActual", clockValue.elapsedTime);
+                    Debug.Log("Time Battle partial time: " + clockValue.elapsedTime);                                    
+                    txtClear.gameObject.SetActive(true); //show the text on canvas.
+                    Time.timeScale = 0;
+                    btNextLv.gameObject.SetActive(true);
+                }
+            }
+
+            if (sceneName == "game1b"){
                 if (countEnemies == gameEndKill){
                     Debug.Log("All enemies were killed!!!");
                     string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
@@ -133,7 +160,7 @@ public class EnemyManager : MonoBehaviour
                     txtClear.gameObject.SetActive(true); //show the text on canvas.
                 }
             }
-
+            
         }
         
     }
