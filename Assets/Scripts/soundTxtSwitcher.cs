@@ -22,9 +22,10 @@ public class SoundTxtSwitcher : MonoBehaviour
         if (muteGame == 0){
             b1text.text = "Sound is Off";
         }
+
         //have to relink with actual music
         if (backgroundMusic == null){
-            Debug.Log("Creating link to previous AudioSource Object");
+            Debug.Log("Button: Creating link to original AudioSource Object");
             backgroundMusic = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioSource>();
         }
     }

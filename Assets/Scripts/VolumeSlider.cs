@@ -16,7 +16,7 @@ public class VolumeSlider : MonoBehaviour
     {
         //have to relink with actual music
         if (backgroundMusic == null){
-            Debug.Log("Returning from sub-scene: Relink to music object");
+            Debug.Log("Slider: Creating link to original AudioSource Object");
             backgroundMusic = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioSource>();
         }
         CheckVolumePrefs();
