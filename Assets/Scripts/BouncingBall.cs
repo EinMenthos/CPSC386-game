@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +23,15 @@ public class BouncingBall : MonoBehaviour
     void Update()
     {
         rigidbodyB.velocity = rigidbodyB.velocity.normalized * speed;
+        /*
+        //avoid the ball got stuck in x or y axis
+        if (rigidbodyB.velocity.y == 0){
+            rigidbodyB.velocity = new Vector3(rigidbodyB.velocity.x + )
+        }
+        if (rigidbodyB.velocity.x == 0) {
+
+        }
+        */
     }
 
 /*
@@ -44,7 +54,7 @@ public class BouncingBall : MonoBehaviour
             string sceneName = currentScene.name;
             //don't make sense to have a high score for kills in time battle since it will always have max kills
             //Endless = only finish when ball falls in the pit.
-            if (sceneName == "game2"){
+            if (sceneName.Contains("game2")){
                 int scoreHS = int.Parse(PlayerPrefs.GetString("EndlessGameHS"));
                 if (int.Parse(scorePlayer.text) > scoreHS){
                     GlobalVariables.HSUpdated = true;
@@ -60,5 +70,22 @@ public class BouncingBall : MonoBehaviour
         if(collision.collider.CompareTag("Enemy")){
             em.HandleEnemy(collision.collider.gameObject);         //this is the ball
         }
+        //Debug.Log("check veocity");
+        //used as reference https://forum.unity.com/threads/breakout-pong-ball-stuck-to-wall-problem.138770/
+                /* x-axis is not a problem since paddle can change it
+
+        if(Mathf.Abs(rigidbodyB.velocity.x) < 0.5 && rigidbodyB.velocity.y != 0){
+            Debug.Log("Ball stuck at y-axis: Adding random factor...");
+            float xDistance = rigidbodyB.position.x - transform.position.x;
+            rigidbodyB.velocity = new Vector2(rigidbodyB.velocity.x + xDistance + Mathf.Sign(xDistance) * Random.Range(0.1f, 0.2f), rigidbodyB.velocity.y);
+        }
+        */
+        if(Mathf.Abs(rigidbodyB.velocity.y) < 0.5 && rigidbodyB.velocity.x != 0){
+            Debug.Log("Ball stuck at x-axis:  Adding random factor...");
+            float yDistance = rigidbodyB.position.y - transform.position.y;
+            rigidbodyB.velocity = new Vector2(rigidbodyB.velocity.x, rigidbodyB.velocity.y + yDistance + Mathf.Sign(yDistance) * Random.Range(0.1f, 0.2f));
+        }
     }
+
+
 }

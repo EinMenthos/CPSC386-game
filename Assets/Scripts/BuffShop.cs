@@ -32,7 +32,7 @@ public class shopbuff : MonoBehaviour
             GlobalVariables.BuffSpawn += 1;
             Debug.Log("Buff Spawn +" + GlobalVariables.BuffSpawn);
         }
-        //the game is paused at game1. Should start it when switching scenes.
+        //the game might be paused at start. Should start it.
         Time.timeScale = 1;
         //2 scenes used to create each level.
         SceneManager.LoadScene("game2b", LoadSceneMode.Single);

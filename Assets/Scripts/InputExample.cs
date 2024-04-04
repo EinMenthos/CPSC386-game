@@ -23,6 +23,7 @@ public class InputExample : MonoBehaviour
     [SerializeField] public float waypointRadius = 7.18f;
     [SerializeField] AudioSource backgroundMusic;    
     [SerializeField] TMP_Text tPause;
+    public TMP_Text tClear;
 
 
     // Update is called once per frame
@@ -60,29 +61,33 @@ public class InputExample : MonoBehaviour
     {
         Debug.Log("Spacebar pressed");
         speed = jumpingBody.velocity.magnitude;
-        if (speed == 0)
+        if (speed == 0 )
         {
             SetRandomTrajectory();  //this one will allow the ball to start randomly
         }
-        else{
+        else{   //ball is moving
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
-            if(sceneName == "game1" || sceneName == "game2" || sceneName == "game1b" || sceneName == "game2b"){
-                //Time.timeScale ? Time.timeScale = 0, Time.timeScale = 1;
-                if (Time.timeScale == 1) {
-                    Time.timeScale = 0;
-                    if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = true;
-                    tPause.gameObject.SetActive(true);
+            
+            if (GameObject.Find("Text-clear")){
+                Debug.Log("Scene completed - cannot pause/unpause");
+            }
+            else{
+                Debug.Log("Scene is running - can pause/unpause");
+                if(sceneName.Contains("game")){
+                    if (Time.timeScale == 1) { // pausing the game
+                        Time.timeScale = 0;
+                        if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = true;
+                        tPause.gameObject.SetActive(true);
+                    }
+                    else{
+                        Time.timeScale = 1;
+                        if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = false;
+                        tPause.gameObject.SetActive(false);
+                    } 
                 }
-                else{
-                    Time.timeScale = 1;
-                    if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = false;
-                    tPause.gameObject.SetActive(false);
-                } 
+            }  
         }
-        }
-
-
     }
     
     //created with professor's help

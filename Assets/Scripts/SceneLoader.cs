@@ -17,13 +17,20 @@ public class SceneLoader : MonoBehaviour
     {
         //globalVariables.HSUpdated flag is set during game1 and game1.
         //Should be disabled before starting another game
-        if(SceneName == "game1" || SceneName == "game2" || SceneName == "game1b" || SceneName == "game2b"){
+        if(SceneName.Contains("game")){
             GlobalVariables.HSUpdated = false;
         }
-        StartCoroutine(LoadLevel());
+        //if game is paused, just skip animation since it will not work
+        if (Time.timeScale == 1){
+            StartCoroutine(TransitionLevel());
+        }
+        else{
+            LoadLevel();
+        }
     }
 
-    IEnumerator LoadLevel(){
+    IEnumerator TransitionLevel(){
+
         //Play animation
         transition.SetTrigger("Start");
         //Wait
@@ -33,13 +40,17 @@ public class SceneLoader : MonoBehaviour
             QuitApp();
         }  
         else{
-            if(GoNextScene)
+            LoadLevel();
+        }
+    }
+    public void LoadLevel(){
+        if(GoNextScene)
             {
                 //SceneManager.LoadScene(SceneIndex);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
             }
             else{
-                //the game is paused at game1. Should start it when switching scenes.
+                //the game might be paused at start. Should start it.
                 Time.timeScale = 1;
                 if(Scenebase == "") {
                     SceneManager.LoadScene(SceneName);
@@ -50,7 +61,6 @@ public class SceneLoader : MonoBehaviour
                     SceneManager.LoadScene(Scenebase, LoadSceneMode.Additive);
                 }
             }
-        }
     }
     public void QuitApp(){
         Application.Quit();

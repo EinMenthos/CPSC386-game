@@ -24,7 +24,7 @@ public class SoundTxtSwitcher : MonoBehaviour
         }
         //have to relink with actual music
         if (backgroundMusic == null){
-            Debug.Log("Returning from sub-scene: Relink to music object");
+            Debug.Log("Creating link to previous AudioSource Object");
             backgroundMusic = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioSource>();
         }
     }

@@ -66,13 +66,14 @@ public class EnemyManager : MonoBehaviour
             timer = 0;
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
-            if (sceneName == "game2"){
+            if (sceneName.Contains("game2")){
                 Debug.Log("enemies on screen: " + curSpawned);
             }
         }
     }
 
 /*
+//this is working. Want to use it when enemy is killed.
     IEnumerator FadeTo(float aValue, float fadeTime, GameObject other, bool usePooling){
         Debug.Log("FadeTo");
         float alpha = spriteRenderer.color.a;
@@ -112,7 +113,7 @@ public class EnemyManager : MonoBehaviour
             countEnemies++;
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
-            if (sceneName == "game1"){
+            if (sceneName.Contains("game1")){
                 if (countEnemies == gameEndKill){
                     Debug.Log("All enemies were killed!!!");
                     string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
