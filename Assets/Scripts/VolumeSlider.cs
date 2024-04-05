@@ -22,16 +22,11 @@ public class VolumeSlider : MonoBehaviour
         CheckVolumePrefs();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void CheckVolumePrefs(){
         if(!PlayerPrefs.HasKey("VolumeLv")){
             Debug.Log("Creating PlayerPrefs.VolumeLv");
-            PlayerPrefs.SetFloat("VolumeLv",100);
+            PlayerPrefs.SetFloat("VolumeLv",50);
         }
         else{
             //Debug.Log(PlayerPrefs.GetInt("VolumeLv"));

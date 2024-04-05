@@ -7,21 +7,17 @@ public class EnemyScoreController2 : MonoBehaviour
     public int gameEndKill = 24;
     int countEnemies = 0;
     [SerializeField] public TMP_Text txtPoints;
-    ClockController clockValue;
+    //ClockController clockValue;
 
     // Start is called before the first frame update
     void Start()
     {
-        clockValue = FindObjectOfType<ClockController>();
+        //clockValue = FindObjectOfType<ClockController>();
     }
 
     public void ScoreGame2(){
         Debug.Log("ScoreGame2");
         countEnemies++;
         txtPoints.text = countEnemies.ToString();
-    }
-
-    public void ESCmsg(){
-        Debug.Log("Yup");
     }
 }
