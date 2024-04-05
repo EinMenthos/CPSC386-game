@@ -19,7 +19,6 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
     // since Awake() callback preceded OnSceneLoaded(), place initialization code in Start()
     private void Start()
     {
-        //Debug.Log("start-dontdestroy");
         DontDestroyOnLoad(this.gameObject);
 
         // subscribe to the scene load callback
@@ -28,8 +27,6 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //Debug.Log("OnSceneLoaded");
-
         // delete any potential duplicates that might be in the scene already, keeping only this one 
         CheckForDuplicateInstances();
 
@@ -39,8 +36,6 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
 
     void CheckForDuplicateInstances()
     {
-        //Debug.Log("Checking for duplicates");
-
         // cache all objects containing this component
         DontDestroyOnSelectedScenes[] collection = FindObjectsOfType<DontDestroyOnSelectedScenes>();
 
@@ -60,8 +55,6 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
 
     void CheckIfSceneInList()
     {
-        //Debug.Log("Checkifsceneinlist");
-
         // check what scene we are in and compare it to the list of strings 
         string currentScene = SceneManager.GetActiveScene().name;
 

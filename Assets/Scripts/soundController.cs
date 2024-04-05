@@ -21,7 +21,7 @@ public class SoundController : MonoBehaviour
     public void CheckVolumePrefs(){
         if(!PlayerPrefs.HasKey("VolumeLv")){
             Debug.Log("Creating PlayerPrefs.VolumeLv");
-            PlayerPrefs.SetFloat("VolumeLv",100);
+            PlayerPrefs.SetFloat("VolumeLv",50);
         }
         else{
             //Debug.Log(PlayerPrefs.GetInt("VolumeLv"));
@@ -30,7 +30,7 @@ public class SoundController : MonoBehaviour
         }
         if(!PlayerPrefs.HasKey("VolumeMute")){
             Debug.Log("Creating PlayerPrefs.VolumeMute");
-            PlayerPrefs.SetInt("VolumeMute",0);
+            PlayerPrefs.SetInt("VolumeMute",1);
         }
         else{
             if (PlayerPrefs.GetInt("VolumeMute") == 0) backgroundMusic.mute = true;

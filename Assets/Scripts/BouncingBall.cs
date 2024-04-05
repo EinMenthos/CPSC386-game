@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,25 +22,8 @@ public class BouncingBall : MonoBehaviour
     void Update()
     {
         rigidbodyB.velocity = rigidbodyB.velocity.normalized * speed;
-        /*
-        //avoid the ball got stuck in x or y axis
-        if (rigidbodyB.velocity.y == 0){
-            rigidbodyB.velocity = new Vector3(rigidbodyB.velocity.x + )
-        }
-        if (rigidbodyB.velocity.x == 0) {
-
-        }
-        */
     }
 
-/*
-    private void SetRandomTrajectory(){
-        Vector2 force = Vector2.up;
-        force.x = Random.Range(-1f, 1f);
-        rigidbodyB.AddForce(force.normalized * speed,ForceMode2D.Impulse);
-        rigidbodyB.velocity = rigidbodyB.velocity.normalized * speed;
-    }
-*/
     void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("Trigger-Enemy");
@@ -73,12 +55,6 @@ public class BouncingBall : MonoBehaviour
         //Debug.Log("check veocity");
         //used as reference https://forum.unity.com/threads/breakout-pong-ball-stuck-to-wall-problem.138770/
                 /* x-axis is not a problem since paddle can change it
-
-        if(Mathf.Abs(rigidbodyB.velocity.x) < 0.5 && rigidbodyB.velocity.y != 0){
-            Debug.Log("Ball stuck at y-axis: Adding random factor...");
-            float xDistance = rigidbodyB.position.x - transform.position.x;
-            rigidbodyB.velocity = new Vector2(rigidbodyB.velocity.x + xDistance + Mathf.Sign(xDistance) * Random.Range(0.1f, 0.2f), rigidbodyB.velocity.y);
-        }
         */
         if(Mathf.Abs(rigidbodyB.velocity.y) < 0.5 && rigidbodyB.velocity.x != 0){
             Debug.Log("Ball stuck at x-axis:  Adding random factor...");

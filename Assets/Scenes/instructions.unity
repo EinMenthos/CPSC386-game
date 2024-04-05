@@ -420,7 +420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188.7279, y: -99.44116}
+  m_AnchoredPosition: {x: -188.7279, y: -204}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346254186
@@ -495,7 +495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.1957, y: 452}
+  m_AnchoredPosition: {x: 9.1957, y: 344}
   m_SizeDelta: {x: 635.7106, y: 354.224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467184403
@@ -522,7 +522,15 @@ MonoBehaviour:
     the ball fall into the pit. The ball will bounce differently depending on where
     it hits the paddle.
 
-    Game developed to run at FULL HD (1920 x 1080) resolution.
+
+    Time Battle is a game that all enemies need to be eliminated
+    (there are 2 stages).
+
+    Endless mode will spawn enemies endlessly. It is also
+    possible to start it with a buff.
+
+    Game developed to run at FULL HD (1920
+    x 1080) resolution.
 
 '
   m_isRightToLeft: 0
@@ -551,8 +559,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -587,7 +595,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 174.07285, z: 0, w: 0}
+  m_margin: {x: -70.15344, y: 174.07285, z: -46.10077, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -635,7 +643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6673584, y: -96.44116}
+  m_AnchoredPosition: {x: -0.6673584, y: -201}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484244689
@@ -769,7 +777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6673584, y: 13.558838}
+  m_AnchoredPosition: {x: -0.6673584, y: -91}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716512513
@@ -903,7 +911,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 259.63818, y: -206.06061}
+  m_AnchoredPosition: {x: 259.63818, y: -310.61945}
   m_SizeDelta: {x: 576.7322, y: 41.2388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721129066
@@ -1263,7 +1271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188.7279, y: -208.44122}
+  m_AnchoredPosition: {x: -188.7279, y: -313.00006}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1610557130
@@ -1688,7 +1696,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188.7279, y: 9.558838}
+  m_AnchoredPosition: {x: -188.7279, y: -95}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2125242234

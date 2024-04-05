@@ -1,9 +1,6 @@
-
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
-using UnityEngine.UIElements;
+
 
 [RequireComponent(typeof(UnitPool))]
 public class EnemyManager : MonoBehaviour
@@ -15,18 +12,8 @@ public class EnemyManager : MonoBehaviour
     public UnitPool pool {get; protected set;}
     float timer = 0;
     int curSpawned = 1;//Should increment up to maxEnemiesSpawned
-    int countEnemies = 0;
-    public int gameEndKill = 24;
-    [SerializeField] public TMP_Text txtClear;
-    [SerializeField] public TMP_Text txtPoints;
-    
-    //link to next button
-    [SerializeField] public GameObject btNextLv;
-    
-    //High score
-    public TMP_Text HSUpdate;
-    Highscore hs;
-    ClockController clockValue;
+    EnemyScoreController1 EnScCtr1;
+    EnemyScoreController2 EnScCtr2;
 /*
     //fade in effect while destroying/disabling it
     public float fadeDelay = 0.3f;
@@ -39,13 +26,8 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         pool = GetComponent<UnitPool>();
-        hs = FindObjectOfType<Highscore>();
-        clockValue = FindObjectOfType<ClockController>();
-    }
-
-    void Awake(){
-        //txtEndlessGame.text = PlayerPrefs.GetString("EndlessGameHS");
-
+        EnScCtr1 = FindObjectOfType<EnemyScoreController1>();
+        EnScCtr2 = FindObjectOfType<EnemyScoreController2>();
     }
 
     GameObject SpawnEnemy()
@@ -110,57 +92,14 @@ public class EnemyManager : MonoBehaviour
             pool.pool.Release(other);
             Debug.Log("releasing...");      //releasing will put it on standby for further usage.
             curSpawned--;
-            countEnemies++;
-            txtPoints.text = countEnemies.ToString();
-
+            EnScCtr2.ScoreGame2();
         }
         else{
             //StartCoroutine(FadeTo(alphaValue, fadeDelay, other, usePooling));
             //only happens at time battle (game1)
             Destroy(other);
             Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
-            countEnemies++;
-            Scene currentScene = SceneManager.GetActiveScene ();
-            string sceneName = currentScene.name;
-            if (sceneName == "game1"){
-                if (countEnemies == gameEndKill){
-                    Debug.Log("All enemies were killed in game1!!!");
-                    //string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
-                    //int minutes = int.Parse(parts[0]);
-                    //int seconds = int.Parse(parts[1]);
-                    //int timeHS = minutes * 60 + seconds;
-                    //minutes = Mathf.FloorToInt(clockValue.elapsedTime / 60f);
-                    //seconds = Mathf.FloorToInt(clockValue.elapsedTime % 60f);
-                    //string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
-                    PlayerPrefs.SetFloat("TimeBattleActual", clockValue.elapsedTime);
-                    Debug.Log("Time Battle partial time: " + clockValue.elapsedTime);                                    
-                    txtClear.gameObject.SetActive(true); //show the text on canvas.
-                    Time.timeScale = 0;
-                    btNextLv.gameObject.SetActive(true);
-                }
-            }
-
-            if (sceneName == "game1b"){
-                if (countEnemies == gameEndKill){
-                    Debug.Log("All enemies were killed!!!");
-                    string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
-                    int minutes = int.Parse(parts[0]);
-                    int seconds = int.Parse(parts[1]);
-                    int timeHS = minutes * 60 + seconds;
-                    if (clockValue.elapsedTime < timeHS){
-                        GlobalVariables.HSUpdated = true;
-                        minutes = Mathf.FloorToInt(clockValue.elapsedTime / 60f);
-                        seconds = Mathf.FloorToInt(clockValue.elapsedTime % 60f);
-                        string timeText = string.Format("{0:00}:{1:00}", minutes, seconds);
-                        PlayerPrefs.SetString("TimeBattleHS", timeText);
-                        Debug.Log("Time Battle record:" + timeText);
-                        HSUpdate.gameObject.SetActive(true);
-                    }
-                    Time.timeScale = 0;                
-                    txtClear.gameObject.SetActive(true); //show the text on canvas.
-                }
-            }
-            
+            EnScCtr1.ScoreGame1();
         }
         
     }

@@ -11,19 +11,11 @@ public class GameOver : MonoBehaviour
         SetActiveHS();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void SetActiveHS (){
         if (GlobalVariables.HSUpdated){
-            //Debug.Log("if:" + HSText.enabled);
             HSText.gameObject.SetActive(true);
         }
         else{
-            //Debug.Log("else:" + HSText.enabled);
             HSText.gameObject.SetActive(false);
         }
     }
