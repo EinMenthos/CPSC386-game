@@ -9,6 +9,7 @@ TagManager:
   - ball
   - Pit
   - audio
+  - Boss
   layers:
   - Default
   - TransparentFX

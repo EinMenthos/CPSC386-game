@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class BouncingBall : MonoBehaviour
 {
     EnemyManager em;
+    BossManager bm;
     public Rigidbody2D rigidbodyB {get; private set; }
     public float speed = 6f;
     public TMP_Text scorePlayer;
@@ -17,6 +18,7 @@ public class BouncingBall : MonoBehaviour
     void Start()
     {
         em = FindObjectOfType<EnemyManager>();
+        bm = FindObjectOfType<BossManager>();
     }
 
     void Update()
@@ -29,6 +31,9 @@ public class BouncingBall : MonoBehaviour
         Debug.Log("Trigger-Enemy");
         if(collider.CompareTag("Enemy")){
             em.HandleEnemy(collider.gameObject);
+        }
+        if(collider.CompareTag("Boss")){
+            bm.HandleEnemy(collider.gameObject);
         }
         if(collider.CompareTag("Pit")){
             Debug.Log("Pit!");
@@ -51,6 +56,9 @@ public class BouncingBall : MonoBehaviour
     {
         if(collision.collider.CompareTag("Enemy")){
             em.HandleEnemy(collision.collider.gameObject);         //this is the ball
+        }
+        if(collision.collider.CompareTag("Boss")){
+            bm.HandleEnemy(collision.collider.gameObject);         //this is the ball
         }
         //Debug.Log("check veocity");
         //used as reference https://forum.unity.com/threads/breakout-pong-ball-stuck-to-wall-problem.138770/

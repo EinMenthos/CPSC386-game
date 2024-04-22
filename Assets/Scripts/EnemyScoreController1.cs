@@ -26,24 +26,10 @@ public class EnemyScoreController1 : MonoBehaviour
 
     public void ScoreGame1(){
         Debug.Log("ScoreGame1");
-
-        countEnemies++;
         Scene currentScene = SceneManager.GetActiveScene ();
         string sceneName = currentScene.name;
-        if (sceneName == "game1"){
-            if (countEnemies == gameEndKill){
-                Debug.Log("All enemies were killed in game1!!!");
-                PlayerPrefs.SetFloat("TimeBattleActual", clockValue.elapsedTime);
-                Debug.Log("Time Battle partial time: " + clockValue.elapsedTime);                                    
-                txtClear.gameObject.SetActive(true); //show the text on canvas.
-                Time.timeScale = 0;
-                btNextLv.gameObject.SetActive(true);
-            }
-        }
-
-        if (sceneName == "game1b"){
-            if (countEnemies == gameEndKill){
-                Debug.Log("All enemies were killed in game1b!!!");
+        if (sceneName == "game1c"){
+                Debug.Log("The boss stage is cleared!!!");
                 string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
                 int minutes = int.Parse(parts[0]);
                 int seconds = int.Parse(parts[1]);
@@ -59,6 +45,19 @@ public class EnemyScoreController1 : MonoBehaviour
                 }
                 Time.timeScale = 0;                
                 txtClear.gameObject.SetActive(true); //show the text on canvas.
+        }
+        else{
+            countEnemies++;
+        
+            if (sceneName == "game1" || sceneName == "game1b"){
+                if (countEnemies == gameEndKill){
+                    Debug.Log("All enemies were killed in " + sceneName +"!!!");
+                    PlayerPrefs.SetFloat("TimeBattleActual", clockValue.elapsedTime);
+                    Debug.Log("Time Battle partial time: " + clockValue.elapsedTime);                                    
+                    txtClear.gameObject.SetActive(true); //show the text on canvas.
+                    Time.timeScale = 0;
+                    btNextLv.gameObject.SetActive(true);
+                }
             }
         }
     }
