@@ -961,7 +961,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476653645}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a70cead8443d0431493d3dc31ac9676c, type: 3}
   m_Name: 
@@ -979,7 +979,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cece1fac41fd4f42824bf0ca589b840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossHP: 30
+  rigidbodyB: {fileID: 2093203680}
+  BossHP: 4
+  BossGO: {fileID: 391635632}
+  pool: {fileID: 2090661889}
+  enemyPrefab: {fileID: 1323229226405651058, guid: 2cbdae1a24e744a048766e416e411108, type: 3}
+  spriteRenderer: {fileID: 391635633}
+  b2: {fileID: 21300000, guid: 37084edc6a87e4954bdcd56b4224fabf, type: 3}
+  b3: {fileID: 21300000, guid: 1bd1c90ad2ba54141a43617baa3456b4, type: 3}
 --- !u!4 &476653648
 Transform:
   m_ObjectHideFlags: 0
@@ -2019,6 +2026,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2090661889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5067781541041541348, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
+  m_PrefabInstance: {fileID: 3792871388487089639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70cead8443d0431493d3dc31ac9676c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2093203679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,7 +2214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 565152774971378567, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5067781541041541348, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: m_Enabled
@@ -2252,7 +2270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8302259900297822838, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: maxEnemiesSpawned
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8654806990473837371, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: m_LocalPosition.x

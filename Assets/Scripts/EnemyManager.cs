@@ -103,5 +103,13 @@ public class EnemyManager : MonoBehaviour
         }
         
     }
+        public GameObject SpawnMobs(int i, int j)
+    {
+        GameObject go;
+        go = Instantiate(enemyPrefab, transform);
+        //go.transform.position = new Vector3(Random.Range(-8, 8), Random.Range(-2, 3));
+        go.transform.position = new Vector3(i, j);
+        return go;
+    }
 
 }
