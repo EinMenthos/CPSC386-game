@@ -24,8 +24,17 @@ public class EnemyScoreController1 : MonoBehaviour
         clockValue = FindObjectOfType<ClockController>();
     }
 
+    void Update()
+    {
+        int ballN = GameObject.FindGameObjectsWithTag("ball").Length;
+        if (ballN == 0){
+            Debug.Log("All balls fell into the Pit...");
+            SceneManager.LoadScene("gameover");
+        }
+    }
+
     public void ScoreGame1(){
-        Debug.Log("ScoreGame1");
+        //Debug.Log("ScoreGame1");
         Scene currentScene = SceneManager.GetActiveScene ();
         string sceneName = currentScene.name;
         if (sceneName == "game1c"){

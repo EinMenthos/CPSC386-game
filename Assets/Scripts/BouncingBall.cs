@@ -28,15 +28,17 @@ public class BouncingBall : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Trigger-Enemy");
+        Debug.Log("I Should not be using trigger... but Triggered Action!");
         if(collider.CompareTag("Enemy")){
             em.HandleEnemy(collider.gameObject);
         }
         if(collider.CompareTag("Boss")){
             bm.HandleEnemy(collider.gameObject);
         }
+        /*
         if(collider.CompareTag("Pit")){
-            Debug.Log("Pit!");
+            //Debug.Log("Pit!");
+            
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
             //don't make sense to have a high score for kills in time battle since it will always have max kills
@@ -48,18 +50,25 @@ public class BouncingBall : MonoBehaviour
                     PlayerPrefs.SetString("EndlessGameHS", scorePlayer.text);
                     Debug.Log("SCORE updated: " + scorePlayer.text);
                 }
-            }
+            }            
         }
+        */
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collision Action");
         if(collision.collider.CompareTag("Enemy")){
             em.HandleEnemy(collision.collider.gameObject);         //this is the ball
         }
         if(collision.collider.CompareTag("Boss")){
             bm.HandleEnemy(collision.collider.gameObject);         //this is the ball
         }
+        /*
+        if(collision.collider.CompareTag("Pit")){
+            Debug.Log("Pit: " + collision.otherCollider.gameObject.tag.ToString());
+        }
+        */
         //Debug.Log("check veocity");
         //used as reference https://forum.unity.com/threads/breakout-pong-ball-stuck-to-wall-problem.138770/
                 /* x-axis is not a problem since paddle can change it

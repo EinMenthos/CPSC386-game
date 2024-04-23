@@ -36,23 +36,28 @@ public class InputExample : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(movingBody) 
-            if(useForce)    //need to set the flag        
-                movingBody.AddForce(moveDir*moveSpeed*Time.deltaTime*physicsModifier, ForceMode2D.Force);
-            else{   //we are mainly using this route
-                //get ball position to avoid it going into the walls
-                Vector2 ballPos = movingBody.position+(moveDir*moveSpeed*Time.deltaTime);
-                if (ballPos.x > -waypointRadius && ballPos.x < waypointRadius) {
-                    speed = jumpingBody.velocity.magnitude;
-                    if (speed == 0)
-                    {
-                        //ball will move together with the bar
-                        jumpingBody.MovePosition(jumpingBody.position+(moveDir*moveSpeed*Time.deltaTime));     
+        int ballN = GameObject.FindGameObjectsWithTag("ball").Length;
+        if (ballN > 0){
+            if(movingBody) 
+                if(useForce)    //need to set the flag        
+                    movingBody.AddForce(moveDir*moveSpeed*Time.deltaTime*physicsModifier, ForceMode2D.Force);
+                else{   //we are mainly using this route
+                    //get ball position to avoid it going into the walls
+                    Vector2 ballPos = movingBody.position+(moveDir*moveSpeed*Time.deltaTime);
+                    if (ballPos.x > -waypointRadius && ballPos.x < waypointRadius) {
+                        speed = jumpingBody.velocity.magnitude;
+                        if (speed == 0)
+                        {
+                            //ball will move together with the bar
+                            jumpingBody.MovePosition(jumpingBody.position+(moveDir*moveSpeed*Time.deltaTime));     
+                        }
+                            //bar will move no matter the speed of the ball
+                            movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
                     }
-                        //bar will move no matter the speed of the ball
-                        movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
                 }
-            }
+        }
+
+        
     }
 
 
