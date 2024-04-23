@@ -69,13 +69,13 @@ public class BossManager : MonoBehaviour
             Destroy(other);
             EnScCtr1.ScoreGame1();
         }
-        if(curHP < BossHP * 1/3){
+        if(curHP <= BossHP * 1/3){
             Debug.Log("Boss stil has 1/3!");
             spriteRenderer.sprite = b3;
             StartCoroutine(MobWait(-1));
             StartCoroutine(MobWait(0));
         }
-        else if(curHP < BossHP * 2/3){
+        else if(curHP <= BossHP * 2/3){
             Debug.Log("Boss still has 2/3!");
             spriteRenderer.sprite = b2;
             //Debug.Log("Y: " + Ball.transform.position.y);
@@ -83,16 +83,37 @@ public class BossManager : MonoBehaviour
         }
     }
     IEnumerator MobWait(int j){
-        //need to create an ending condition. It still runs when the game ends.
         while(Ball.transform.position.y > j-1){
-            //Debug.Log("waiting to create barrier");
+            //Debug.Log("waiting ball to go down");
             yield return null;
         }
         
+        
         for (int i = -8; i <= 8; i++){
-            em.SpawnMobs(i, j);
+            //check if there is
+            if (!isEnemyPresent(i,j)){
+                em.SpawnMobs(i, j);
+            }
+            else {Debug.Log("Enemy at (" + i + "," + j + ") already exists");}
         }
     }
 
+    bool isEnemyPresent(int x, int y)
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log("Enemies found: " + enemies.Length);
+        foreach (GameObject enemy in enemies)
+        {
+            Vector3 enemyPosition = enemy.transform.position;
+            Debug.Log("Enemy position: " + enemyPosition);
+
+            // Check if the enemy is at the specified position
+            if (Mathf.RoundToInt(enemyPosition.x) == x && Mathf.RoundToInt(enemyPosition.y) == y)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,7 @@ public class BouncingBall : MonoBehaviour
 {
     EnemyManager em;
     BossManager bm;
+    //InputExample ie;
     public Rigidbody2D rigidbodyB {get; private set; }
     public float speed = 6f;
     public TMP_Text scorePlayer;
@@ -19,22 +21,50 @@ public class BouncingBall : MonoBehaviour
     {
         em = FindObjectOfType<EnemyManager>();
         bm = FindObjectOfType<BossManager>();
+        //ie = FindObjectOfType<InputExample>();
     }
 
     void Update()
     {
         rigidbodyB.velocity = rigidbodyB.velocity.normalized * speed;
     }
-
+/*
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        int ballN = GameObject.FindGameObjectsWithTag("ball").Length;
+        if (ballN > 0){
+            if(movingBody) 
+                if(useForce)    //need to set the flag        
+                    movingBody.AddForce(moveDir*moveSpeed*Time.deltaTime*physicsModifier, ForceMode2D.Force);
+                else{   //we are mainly using this route
+                    //get ball position to avoid it going into the walls
+                    Vector2 ballPos = movingBody.position+(moveDir*moveSpeed*Time.deltaTime);
+                    if (ballPos.x > -waypointRadius && ballPos.x < waypointRadius) {
+                        speed = jumpingBody.velocity.magnitude;
+                        if (speed == 0)
+                        {
+                            //ball will move together with the bar
+                            jumpingBody.MovePosition(jumpingBody.position+(moveDir*moveSpeed*Time.deltaTime));     
+                        }
+                            //bar will move no matter the speed of the ball
+                            movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
+                    }
+                }
+        }
+    }
+*/
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("I Should not be using trigger... but Triggered Action!");
+        /*
+        Debug.Log("Not being used in this script...");
         if(collider.CompareTag("Enemy")){
             em.HandleEnemy(collider.gameObject);
         }
         if(collider.CompareTag("Boss")){
             bm.HandleEnemy(collider.gameObject);
         }
+        */
         /*
         if(collider.CompareTag("Pit")){
             //Debug.Log("Pit!");

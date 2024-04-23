@@ -14,12 +14,12 @@ using UnityEngine.SceneManagement;
 public class InputExample : MonoBehaviour
 {
     [SerializeField]
-    Rigidbody2D jumpingBody, movingBody;
+    public Rigidbody2D jumpingBody, movingBody;
     [SerializeField]
-    bool useForce = true;
-    [SerializeField] float jumpPower = 6f, moveSpeed = 3.0f;
-    float physicsModifier = 100f;
-    Vector2 moveDir = Vector2.zero;
+    public bool useForce = true;
+    [SerializeField] public float jumpPower = 6f, moveSpeed = 3.0f;
+    public float physicsModifier = 100f;
+    public Vector2 moveDir = Vector2.zero;
     [SerializeField] public float waypointRadius = 7.18f;
     [SerializeField] AudioSource backgroundMusic;    
     [SerializeField] TMP_Text tPause;
@@ -33,6 +33,18 @@ public class InputExample : MonoBehaviour
             backgroundMusic = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioSource>();
         }
     }
+
+    void Update(){
+        if (!jumpingBody){
+            // Try to find another jumpingBody in the scene
+            GameObject[] jumpingBodies = GameObject.FindGameObjectsWithTag("ball");
+            if (jumpingBodies.Length > 0)
+            {
+                jumpingBody = jumpingBodies[0].GetComponent<Rigidbody2D>();
+            }
+        }
+    }
+    /*
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -56,10 +68,35 @@ public class InputExample : MonoBehaviour
                     }
                 }
         }
-
-        
     }
+*/
 
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        //if(movingBody) 
+            if(useForce)    //need to set the flag        
+                movingBody.AddForce(moveDir*moveSpeed*Time.deltaTime*physicsModifier, ForceMode2D.Force);
+            else{   //we are mainly using this route
+                //get ball position to avoid it going into the walls
+                Vector2 paddlePos = movingBody.position+(moveDir*moveSpeed*Time.deltaTime);
+
+                if (paddlePos.x > -waypointRadius && paddlePos.x < waypointRadius) {
+                    //when the paddle is within the cage, it can go further
+                    if (jumpingBody){
+                        speed = jumpingBody.velocity.magnitude;
+                        if (speed == 0)
+                        {
+                            //ball will move together with the bar
+                            jumpingBody.MovePosition(jumpingBody.position+(moveDir*moveSpeed*Time.deltaTime));     
+                        }
+                    }
+                    //bar will move no matter the speed of the ball inside the cage
+                    movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
+                }
+                
+            }
+    }
 
     //This function will provide movement using the new input system
     void OnMove(InputValue value)
@@ -71,8 +108,9 @@ public class InputExample : MonoBehaviour
 
     void OnJump()
     {
-        Debug.Log("Spacebar pressed");
-        speed = jumpingBody.velocity.magnitude;
+        //Debug.Log("Spacebar pressed");
+        if (jumpingBody){
+            speed = jumpingBody.velocity.magnitude;
         if (speed == 0 )
         {
             SetRandomTrajectory();  //this one will allow the ball to start randomly
@@ -100,6 +138,8 @@ public class InputExample : MonoBehaviour
                 }
             }  
         }
+        }
+        
     }
     
     //created with professor's help
