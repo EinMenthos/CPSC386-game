@@ -11,6 +11,8 @@ public class BossManager : MonoBehaviour
     public Rigidbody2D Ball;
 
     [SerializeField] public float BossHP = 100;
+        //float curHP = 0;//Should increment up to maxEnemiesSpawned
+    [SerializeField] float curHP = 0;//Should increment up to maxEnemiesSpawned
     [SerializeField] RectTransform healthbarFill;
     //public float spawnsPerSecond = 0.5f;
     //[SerializeField] public bool usePooling = false;
@@ -19,8 +21,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
 
     //float timer = 0;
-    float curHP = 0;//Should increment up to maxEnemiesSpawned
-    //int curSpawned = 1;//Should increment up to maxEnemiesSpawned
+
 
     EnemyScoreController1 EnScCtr1;
     //EnemyScoreController2 EnScCtr2;
@@ -48,7 +49,8 @@ public class BossManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        float healthRatio = curHP/BossHP;
+        healthbarFill.localScale = new Vector3(healthRatio, 1f, 1f);
     }
 
 
@@ -71,6 +73,7 @@ public class BossManager : MonoBehaviour
             Debug.Log("Boss stil has 1/3!");
             spriteRenderer.sprite = b3;
             StartCoroutine(MobWait(-1));
+            StartCoroutine(MobWait(0));
         }
         else if(curHP < BossHP * 2/3){
             Debug.Log("Boss still has 2/3!");
@@ -85,6 +88,7 @@ public class BossManager : MonoBehaviour
             //Debug.Log("waiting to create barrier");
             yield return null;
         }
+        
         for (int i = -8; i <= 8; i++){
             em.SpawnMobs(i, j);
         }

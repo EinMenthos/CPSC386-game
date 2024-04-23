@@ -292,7 +292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 369}
+  m_AnchoredPosition: {x: 0, y: 384.76}
   m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &316159578
@@ -547,7 +547,7 @@ Transform:
   m_GameObject: {fileID: 391635632}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.708509, y: 2.55, z: 6.6171103}
+  m_LocalPosition: {x: 0.74, y: 2.82, z: 6.6171103}
   m_LocalScale: {x: 1.1893407, y: 1.5198064, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1058,6 +1058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ball: {fileID: 2093203680}
   BossHP: 10
+  curHP: 0
   healthbarFill: {fileID: 1885706015}
   BossGO: {fileID: 391635632}
   pool: {fileID: 2090661889}
@@ -1709,9 +1710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3477666b1ca6346d78ffd3d514d1cf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNames:
-  - game1c
-  instanceName: game1
+  sceneNames: []
+  instanceName: g1-bgImg
 --- !u!1 &1475854017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,9 +2001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3477666b1ca6346d78ffd3d514d1cf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNames:
-  - game1c
-  instanceName: game1
+  sceneNames: []
+  instanceName: g1-bgMusic
 --- !u!1 &1885706014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,7 +2422,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8302259900297822838, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: maxEnemiesSpawned
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8654806990473837371, guid: eac83e44602c7491bbf239eb457ae2de, type: 3}
       propertyPath: m_LocalPosition.x

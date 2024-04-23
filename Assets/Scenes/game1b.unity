@@ -2947,8 +2947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3477666b1ca6346d78ffd3d514d1cf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNames: []
-  instanceName: game1
+  sceneNames:
+  - game1c
+  instanceName: g1-bgImg
 --- !u!1 &1475854017
 GameObject:
   m_ObjectHideFlags: 0
@@ -3383,7 +3384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneNames:
   - game1c
-  instanceName: game1
+  instanceName: g1-bgMusic
 --- !u!4 &1516531643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}
