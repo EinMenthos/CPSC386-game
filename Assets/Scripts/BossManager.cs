@@ -10,7 +10,8 @@ public class BossManager : MonoBehaviour
     EnemyManager em;
     public Rigidbody2D Ball;
 
-    [SerializeField] public int BossHP = 10;
+    [SerializeField] public float BossHP = 100;
+    [SerializeField] RectTransform healthbarFill;
     //public float spawnsPerSecond = 0.5f;
     //[SerializeField] public bool usePooling = false;
     [SerializeField] GameObject BossGO;
@@ -18,7 +19,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
 
     //float timer = 0;
-    int curHP = 0;//Should increment up to maxEnemiesSpawned
+    float curHP = 0;//Should increment up to maxEnemiesSpawned
     //int curSpawned = 1;//Should increment up to maxEnemiesSpawned
 
     EnemyScoreController1 EnScCtr1;
@@ -41,21 +42,26 @@ public class BossManager : MonoBehaviour
         em = FindObjectOfType<EnemyManager>();
         pool = GetComponent<UnitPool>();
         EnScCtr1 = FindObjectOfType<EnemyScoreController1>();
-        //EnScCtr2 = FindObjectOfType<EnemyScoreController2>();
+        curHP = BossHP;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        float healthRatio = curHP/BossHP;
+        Debug.Log(curHP + " / " + BossHP + "=" + healthRatio);
+        healthbarFill.localScale = new Vector3(healthRatio, 1f, 1f);
     }
 
 
     public void HandleEnemy(GameObject other)//Deletes enemy and applies damage
     {
-        curHP++;
+        curHP--;
+        float healthRatio = curHP/BossHP;
+        healthbarFill.localScale = new Vector3(healthRatio * 2, 0.2f, 1f);
 
-        if (curHP < BossHP){
+
+        if (curHP > 0){
             Debug.Log(curHP + " / " + BossHP);
         }
         else{
@@ -63,24 +69,22 @@ public class BossManager : MonoBehaviour
             Destroy(other);
             EnScCtr1.ScoreGame1();
         }
-        if(curHP > BossHP * 2/3){
-            Debug.Log("Boss lose 2/3!");
+        if(curHP < BossHP * 1/3){
+            Debug.Log("Boss stil has 1/3!");
             spriteRenderer.sprite = b3;
             StartCoroutine(MobWait(-1));
-
         }
-        else if(curHP > BossHP * 1/3){
-            Debug.Log("Boss lose 1/3!");
+        else if(curHP < BossHP * 2/3){
+            Debug.Log("Boss still has 2/3!");
             spriteRenderer.sprite = b2;
-            Debug.Log("Y: " + Ball.transform.position.y);
+            //Debug.Log("Y: " + Ball.transform.position.y);
             StartCoroutine(MobWait(0));
-            
         }
     }
     IEnumerator MobWait(int j){
         //need to create an ending condition. It still runs when the game ends.
         while(Ball.transform.position.y > j-1){
-            Debug.Log("waiting to create barrier");
+            //Debug.Log("waiting to create barrier");
             yield return null;
         }
         for (int i = -8; i <= 8; i++){

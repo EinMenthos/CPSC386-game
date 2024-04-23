@@ -61,6 +61,12 @@ public class EnemyManager : MonoBehaviour
                 Debug.Log("enemies on screen: " + curSpawned);
             }
         }
+        //GameObject.FindGameObjectsWithTag("ball").Length  // used to count "balls"
+        //GameObject.FindGameObjectsWithTag("Enemy").Length   //used to count "Enemies" on screen
+        /*
+        if (GameObject.FindGameObjectsWithTag("ball").Length != 0)
+            Debug.Log(GameObject.FindGameObjectsWithTag("ball").Length);
+            */
     }
 
 /*
