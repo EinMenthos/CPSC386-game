@@ -7,7 +7,6 @@ public class BouncingBall : MonoBehaviour
 {
     EnemyManager em;
     BossManager bm;
-    //InputExample ie;
     public Rigidbody2D rigidbodyB {get; private set; }
     public float speed = 6f;
     public TMP_Text scorePlayer;
@@ -21,7 +20,6 @@ public class BouncingBall : MonoBehaviour
     {
         em = FindObjectOfType<EnemyManager>();
         bm = FindObjectOfType<BossManager>();
-        //ie = FindObjectOfType<InputExample>();
     }
 
     void Update()
@@ -87,7 +85,7 @@ public class BouncingBall : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision Action");
+        //Debug.Log("Collision Action");
         if(collision.collider.CompareTag("Enemy")){
             em.HandleEnemy(collision.collider.gameObject);         //this is the ball
         }

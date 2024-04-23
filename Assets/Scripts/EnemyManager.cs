@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,13 +15,12 @@ public class EnemyManager : MonoBehaviour
     int curSpawned = 1;//Should increment up to maxEnemiesSpawned
     EnemyScoreController1 EnScCtr1;
     EnemyScoreController2 EnScCtr2;
-/*
+
     //fade in effect while destroying/disabling it
     public float fadeDelay = 0.3f;
     public float alphaValue = 0;
     public bool destroyGameObject = false;
     SpriteRenderer spriteRenderer;
-*/
 
     // Start is called before the first frame update
     void Start()
@@ -69,34 +69,30 @@ public class EnemyManager : MonoBehaviour
             */
     }
 
-/*
+
 //this is working. Want to use it when enemy is killed.
     IEnumerator FadeTo(float aValue, float fadeTime, GameObject other, bool usePooling){
-        Debug.Log("FadeTo");
+        spriteRenderer = other.GetComponent<SpriteRenderer>();
+        Debug.Log("Fade effect");
         float alpha = spriteRenderer.color.a;
         for (float t = 0.0f; t < 1.0f; t+= Time.deltaTime / fadeTime){
-            Debug.Log("Fading...");
+            //Debug.Log("Fading: " + t);
             Color newColor = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, Mathf.Lerp(alpha, aValue, t));
             spriteRenderer.color = newColor;
             yield return null;
         }
-        if (usePooling)
-            pool.pool.Release(other);
-
-        else
-            Destroy(other);
-            //gameObject.SetActive(false);
     }
- */
+ 
     public void HandleEnemy(GameObject other)//Deletes enemy and applies damage
     {
+        other.GetComponent<BoxCollider2D>().enabled = false;
         //fade effect
-        //spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         if(usePooling){
-            //StartCoroutine(FadeTo(alphaValue, fadeDelay, other, usePooling));
+            StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
             //only happens at endless mode (game2)
-            pool.pool.Release(other);
-            Debug.Log("releasing...");      //releasing will put it on standby for further usage.
+            //pool.pool.Release(other);
+            //Debug.Log("releasing...");      //releasing will put it on standby for further usage.
             curSpawned--;
             
             Scene currentScene = SceneManager.GetActiveScene ();
@@ -107,12 +103,11 @@ public class EnemyManager : MonoBehaviour
             else{
                 EnScCtr2.ScoreGame2();
             }
-            
         }
         else{
-            //StartCoroutine(FadeTo(alphaValue, fadeDelay, other, usePooling));
+            StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
             //only happens at time battle (game1)
-            Destroy(other);
+            Destroy(other,1);
             Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
             EnScCtr1.ScoreGame1();
         }
