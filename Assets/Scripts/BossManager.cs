@@ -48,9 +48,7 @@ public class BossManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float healthRatio = curHP/BossHP;
-        Debug.Log(curHP + " / " + BossHP + "=" + healthRatio);
-        healthbarFill.localScale = new Vector3(healthRatio, 1f, 1f);
+
     }
 
 
@@ -58,7 +56,7 @@ public class BossManager : MonoBehaviour
     {
         curHP--;
         float healthRatio = curHP/BossHP;
-        healthbarFill.localScale = new Vector3(healthRatio * 2, 0.2f, 1f);
+        healthbarFill.localScale = new Vector3(healthRatio, 1f, 1f);
 
 
         if (curHP > 0){

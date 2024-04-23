@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8cdeaebd441647b5b406feb9ee40625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEndKill: 30
+  gameEndKill: 1000
   txtClear: {fileID: 181756221}
   txtPoints: {fileID: 1117352370}
   btNextLv: {fileID: 0}
@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ball: {fileID: 2093203680}
-  BossHP: 20
+  BossHP: 10
   healthbarFill: {fileID: 1885706015}
   BossGO: {fileID: 391635632}
   pool: {fileID: 2090661889}

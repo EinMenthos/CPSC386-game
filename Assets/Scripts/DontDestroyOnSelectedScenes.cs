@@ -27,11 +27,13 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // check if this object should be deleted based on the input scene names given 
+        CheckIfSceneInList();
+
         // delete any potential duplicates that might be in the scene already, keeping only this one 
         CheckForDuplicateInstances();
 
-        // check if this object should be deleted based on the input scene names given 
-        CheckIfSceneInList();
+        
     }
 
     void CheckForDuplicateInstances()
@@ -57,7 +59,7 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
     {
         // check what scene we are in and compare it to the list of strings 
         string currentScene = SceneManager.GetActiveScene().name;
-
+        Debug.Log("current scene: " + currentScene);
         if (sceneNames.Contains(currentScene))
         {
             // keep the object alive 

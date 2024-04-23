@@ -98,7 +98,16 @@ public class EnemyManager : MonoBehaviour
             pool.pool.Release(other);
             Debug.Log("releasing...");      //releasing will put it on standby for further usage.
             curSpawned--;
-            EnScCtr2.ScoreGame2();
+            
+            Scene currentScene = SceneManager.GetActiveScene ();
+            string sceneName = currentScene.name;
+            if (sceneName.Contains("game1")){
+                //Debug.Log("A mob is killed... ");
+            }
+            else{
+                EnScCtr2.ScoreGame2();
+            }
+            
         }
         else{
             //StartCoroutine(FadeTo(alphaValue, fadeDelay, other, usePooling));
