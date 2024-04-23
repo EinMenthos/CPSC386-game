@@ -51,6 +51,16 @@ public class BossManager : MonoBehaviour
     {
         float healthRatio = curHP/BossHP;
         healthbarFill.localScale = new Vector3(healthRatio, 1f, 1f);
+
+        if (!Ball){
+            // Try to find another jumpingBody in the scene
+            GameObject[] jumpingBodies = GameObject.FindGameObjectsWithTag("ball");
+            if (jumpingBodies.Length > 0)
+            {
+                Ball = jumpingBodies[0].GetComponent<Rigidbody2D>();
+            }
+        }
+    
     }
 
 
