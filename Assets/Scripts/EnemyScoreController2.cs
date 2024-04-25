@@ -35,7 +35,7 @@ public class EnemyScoreController2 : MonoBehaviour
             GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
             GameObject newBall = Instantiate(balls[0], transform);
             newBall.transform.position = balls[0].transform.position;
-            newBall.GetComponent<Rigidbody2D>().velocity = new Vector2(balls[0].GetComponent<Rigidbody2D>().velocity.x * Random.Range(-1f, 1f), balls[0].GetComponent<Rigidbody2D>().velocity.y * Random.Range(-1f, 1f));
+            newBall.GetComponent<Rigidbody2D>().velocity = new Vector2(balls[0].GetComponent<Rigidbody2D>().velocity.x * Random.Range(-0.5f, 0.5f), balls[0].GetComponent<Rigidbody2D>().velocity.y * Random.Range(-1f, 1f));
         }
     }
 }

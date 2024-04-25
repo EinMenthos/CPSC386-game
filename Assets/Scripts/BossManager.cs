@@ -99,7 +99,7 @@ public class BossManager : MonoBehaviour
     }
     IEnumerator MobEffect(int k){
         //wait to balls move away b4 plaing barrier
-        yield return new WaitForSeconds(k);
+        yield return new WaitForSeconds(1);
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         List<string> enemiesPos = new List<string>();
@@ -117,7 +117,7 @@ public class BossManager : MonoBehaviour
                 em.SpawnMobs(2, j);
             }
         }
-        for (int j = -2; j < 2; j++){
+        for (int j = -2; j <= 2; j++){
             if (!enemiesPos.Contains(j + ",0")){
                 em.SpawnMobs(j, 0);
             }
@@ -131,7 +131,7 @@ public class BossManager : MonoBehaviour
                     em.SpawnMobs(3, j);
                 }
             }
-            for (int j = -3; j < 3; j++){
+            for (int j = -3; j <= 3; j++){
                 if (!enemiesPos.Contains(j + ",-1")){
                     em.SpawnMobs(j, -1);
                 }

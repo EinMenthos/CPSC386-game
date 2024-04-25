@@ -37,6 +37,14 @@ public class EnemyScoreController1 : MonoBehaviour
         //Debug.Log("ScoreGame1");
         Scene currentScene = SceneManager.GetActiveScene ();
         string sceneName = currentScene.name;
+        countEnemies++;
+        if (countEnemies % 5 == 0 && countEnemies > 0){
+            Debug.Log("Add another ball: " + countEnemies);
+            GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
+            GameObject newBall = Instantiate(balls[0], transform);
+            newBall.transform.position = balls[0].transform.position;
+            newBall.GetComponent<Rigidbody2D>().velocity = new Vector2(balls[0].GetComponent<Rigidbody2D>().velocity.x * Random.Range(-0.5f, 0.5f), balls[0].GetComponent<Rigidbody2D>().velocity.y * Random.Range(-1f, 1f));
+        }
         if (sceneName == "game1c"){
                 Debug.Log("The boss stage is cleared!!!");
                 string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
@@ -56,8 +64,6 @@ public class EnemyScoreController1 : MonoBehaviour
                 txtClear.gameObject.SetActive(true); //show the text on canvas.
         }
         else{
-            countEnemies++;
-        
             if (sceneName == "game1" || sceneName == "game1b"){
                 if (countEnemies == gameEndKill){
                     Debug.Log("All enemies were killed in " + sceneName +"!!!");
