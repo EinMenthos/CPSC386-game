@@ -73,7 +73,7 @@ public class EnemyManager : MonoBehaviour
 //this is working. Want to use it when enemy is killed.
     IEnumerator FadeTo(float aValue, float fadeTime, GameObject other, bool usePooling){
         spriteRenderer = other.GetComponent<SpriteRenderer>();
-        Debug.Log("Fade effect");
+        //Debug.Log("Fade effect");
         float alpha = spriteRenderer.color.a;
         for (float t = 0.0f; t < 1.0f; t+= Time.deltaTime / fadeTime){
             //Debug.Log("Fading: " + t);
@@ -91,6 +91,7 @@ public class EnemyManager : MonoBehaviour
         if(usePooling){
             StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
             //only happens at endless mode (game2)
+            //this.Invoke(() => pool.pool.Release(other), 1.0f);
             //pool.pool.Release(other);
             //Debug.Log("releasing...");      //releasing will put it on standby for further usage.
             curSpawned--;
@@ -113,7 +114,13 @@ public class EnemyManager : MonoBehaviour
         }
         
     }
-        public GameObject SpawnMobs(int i, int j)
+
+    private void Invoke(System.Func<IEnumerator> value, float v)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public GameObject SpawnMobs(int i, int j)
     {
         GameObject go;
         go = pool.pool.Get();
