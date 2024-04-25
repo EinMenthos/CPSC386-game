@@ -58,7 +58,7 @@ public class EnemyManager : MonoBehaviour
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
             if (sceneName.Contains("game2")){
-                Debug.Log("enemies on screen: " + curSpawned);
+                //Debug.Log("enemies on screen: " + curSpawned);
             }
         }
         //GameObject.FindGameObjectsWithTag("ball").Length  // used to count "balls"
@@ -85,14 +85,13 @@ public class EnemyManager : MonoBehaviour
  
     public void HandleEnemy(GameObject other)//Deletes enemy and applies damage
     {
-        other.GetComponent<BoxCollider2D>().enabled = false;
+        //
         //fade effect
-        spriteRenderer = GetComponent<SpriteRenderer>();
         if(usePooling){
-            StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
+            //StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
             //only happens at endless mode (game2)
             //this.Invoke(() => pool.pool.Release(other), 1.0f);
-            //pool.pool.Release(other);
+            pool.pool.Release(other);
             //Debug.Log("releasing...");      //releasing will put it on standby for further usage.
             curSpawned--;
             
@@ -106,6 +105,8 @@ public class EnemyManager : MonoBehaviour
             }
         }
         else{
+            other.GetComponent<BoxCollider2D>().enabled = false;
+            //spriteRenderer = GetComponent<SpriteRenderer>();
             StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
             //only happens at time battle (game1)
             Destroy(other,1);
@@ -115,11 +116,12 @@ public class EnemyManager : MonoBehaviour
         
     }
 
+/*
     private void Invoke(System.Func<IEnumerator> value, float v)
     {
         throw new System.NotImplementedException();
     }
-
+*/
     public GameObject SpawnMobs(int i, int j)
     {
         GameObject go;

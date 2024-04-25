@@ -30,5 +30,12 @@ public class EnemyScoreController2 : MonoBehaviour
         //Debug.Log("ScoreGame2");
         countEnemies++;
         txtPoints.text = countEnemies.ToString();
+        if (countEnemies % 5 == 0 && countEnemies > 0){
+            Debug.Log("Add another ball: " + countEnemies);
+            GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
+            GameObject newBall = Instantiate(balls[0], transform);
+            newBall.transform.position = balls[0].transform.position;
+            newBall.GetComponent<Rigidbody2D>().velocity = new Vector2(balls[0].GetComponent<Rigidbody2D>().velocity.x * Random.Range(-1f, 1f), balls[0].GetComponent<Rigidbody2D>().velocity.y * Random.Range(-1f, 1f));
+        }
     }
 }
