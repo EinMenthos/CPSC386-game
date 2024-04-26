@@ -31,7 +31,7 @@ public class EnemyScoreController2 : MonoBehaviour
         countEnemies++;
         txtPoints.text = countEnemies.ToString();
         if (countEnemies % 5 == 0 && countEnemies > 0){
-            Debug.Log("Add another ball: " + countEnemies);
+            Debug.Log("Add another ball: " + countEnemies + "hits");
             GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
             GameObject newBall = Instantiate(balls[0], transform);
             newBall.transform.position = balls[0].transform.position;

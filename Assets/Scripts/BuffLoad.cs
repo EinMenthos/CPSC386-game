@@ -8,6 +8,8 @@ public class BuffLoad : MonoBehaviour
     MobManager mm;
     [SerializeField] public GameObject refBall;
     [SerializeField] public GameObject refPaddle;
+    [SerializeField] public GameObject refPaddleShadow;
+
 
     [SerializeField] public InputExample inputEx;
 
@@ -29,8 +31,11 @@ public class BuffLoad : MonoBehaviour
         }
         if (GlobalVariables.BuffPaddle != 0){
             Vector3 theScale = refPaddle.transform.localScale;
+            Vector3 theScaleShadow = refPaddleShadow.transform.localScale;
 			theScale.x *= 1.5f;
-			refPaddle.transform.localScale = theScale;    
+            theScaleShadow.x *= 1.5f;
+			refPaddle.transform.localScale = theScale;   
+            refPaddleShadow.transform.localScale = theScaleShadow;    
             inputEx.waypointRadius *= 0.91f;
         }
         if(GlobalVariables.BuffSpawn != 0){

@@ -85,25 +85,26 @@ public class BossManager : MonoBehaviour
                 newBall.transform.position = balls[0].transform.position;
                 newBall.GetComponent<Rigidbody2D>().velocity = new Vector2(balls[0].GetComponent<Rigidbody2D>().velocity.x * Random.Range(-0.5f, 0.5f), balls[0].GetComponent<Rigidbody2D>().velocity.y * Random.Range(-1f, 1f));
             }
+            if(curHP <= BossHP * 1/3){
+                Debug.Log("Boss still has less than 1/3!");
+                spriteRenderer.sprite = b3;
+                fearEffect();
+                StartCoroutine(MobEffect(2));
+            }
+            else if(curHP <= BossHP * 2/3){
+                Debug.Log("Boss still has less than 2/3!");
+                spriteRenderer.sprite = b2;
+                fearEffect();
+                //Debug.Log("Y: " + Ball.transform.position.y);
+                StartCoroutine(MobEffect(1));
+            }
         }
         else{
             Debug.Log("Boss is dead!");
             Destroy(other);
             EnScCtr1.ScoreGame1();
         }
-        if(curHP <= BossHP * 1/3){
-            Debug.Log("Boss still has less than 1/3!");
-            spriteRenderer.sprite = b3;
-            fearEffect();
-            StartCoroutine(MobEffect(2));
-        }
-        else if(curHP <= BossHP * 2/3){
-            Debug.Log("Boss still has less than 2/3!");
-            spriteRenderer.sprite = b2;
-            fearEffect();
-            //Debug.Log("Y: " + Ball.transform.position.y);
-            StartCoroutine(MobEffect(1));
-        }
+        
     }
     IEnumerator MobEffect(int k){
         //wait to balls move away b4 plaing barrier
