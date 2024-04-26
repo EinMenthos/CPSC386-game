@@ -21,7 +21,9 @@ public class InputExample : MonoBehaviour
     public float physicsModifier = 100f;
     public Vector2 moveDir = Vector2.zero;
     [SerializeField] public float waypointRadius = 7.18f;
-    [SerializeField] AudioSource backgroundMusic;    
+    [SerializeField] AudioSource backgroundMusic;
+    [SerializeField] AudioSource pauseSound;    
+
     [SerializeField] TMP_Text tPause;
     public TMP_Text tClear;
 
@@ -125,6 +127,7 @@ public class InputExample : MonoBehaviour
             else{
                 Debug.Log("Scene is running - can pause/unpause");
                 if(sceneName.Contains("game")){
+                    pauseSound.Play();
                     if (Time.timeScale == 1) { // pausing the game
                         Time.timeScale = 0;
                         if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = true;

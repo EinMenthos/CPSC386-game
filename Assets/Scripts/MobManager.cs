@@ -12,6 +12,10 @@ public class MobManager : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public BossManager bm;
     public int limitBreak = 5;
+    [SerializeField] AudioSource killSound;
+    [SerializeField] AudioSource extraB;
+
+
 
     //public float fadeDelay = 0.3f;
     //public float alphaValue = 0;
@@ -66,6 +70,7 @@ public class MobManager : MonoBehaviour
         other.GetComponent<BoxCollider2D>().enabled = false;
         bm.countHits++;
         if (bm.countHits % limitBreak == 0 && bm.countHits > 0){
+            extraB.Play();
             Debug.Log("Add another ball: " + bm.countHits + "hits");
             GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
             GameObject newBall = Instantiate(balls[0], transform);
@@ -77,6 +82,8 @@ public class MobManager : MonoBehaviour
             //StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
             //only happens at endless mode (game2)
             //this.Invoke(() => pool.pool.Release(other), 1.0f);
+            other.GetComponent<BoxCollider2D>().enabled = false;
+            killSound.Play();
             StartCoroutine(IFadeTo(0, 0.5f, other, usePooling));
             StartCoroutine(IDelayReleasePool(other));
             //pool.pool.Release(other);
@@ -85,6 +92,7 @@ public class MobManager : MonoBehaviour
         else{
             //not the main route - delete
             other.GetComponent<BoxCollider2D>().enabled = false;
+            killSound.Play();
             //spriteRenderer = GetComponent<SpriteRenderer>();
             StartCoroutine(IFadeTo(0, 0.5f, other, usePooling));
             //only happens at time battle (game1)

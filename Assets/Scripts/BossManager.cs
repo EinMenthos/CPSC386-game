@@ -34,6 +34,14 @@ public class BossManager : MonoBehaviour
     [SerializeField] private Animator fearAnimator;
     public int countHits = 0;
     public int limitBreak = 5;
+    [SerializeField] AudioSource BossKillSound;
+    [SerializeField] AudioSource debuffSound;
+    [SerializeField] AudioSource extraB;    
+    [SerializeField] AudioSource BossHit;    
+
+
+
+
 /*
     //fade in effect while destroying/disabling it
     public float fadeDelay = 0.3f;
@@ -45,7 +53,7 @@ public class BossManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mm = FindObjectOfType<MobManager>();
+        //mm = FindObjectOfType<MobManager>();
         pool = GetComponent<UnitPool>();
         EnScCtr1 = FindObjectOfType<EnemyScoreController1>();
         curHP = BossHP;
@@ -71,14 +79,15 @@ public class BossManager : MonoBehaviour
     public void HandleEnemy(GameObject other)//Deletes enemy and applies damage
     {
         curHP--;
+        BossHit.Play();
         float healthRatio = curHP/BossHP;
         healthbarFill.localScale = new Vector3(healthRatio, 1f, 1f);
-
 
         if (curHP > 0){
             Debug.Log(curHP + " / " + BossHP);
             countHits++;
             if (countHits % limitBreak == 0 && countHits > 0){
+                extraB.Play();
                 Debug.Log("Add another ball: " + countHits + "hits");
                 GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
                 GameObject newBall = Instantiate(balls[0], transform);
@@ -89,18 +98,21 @@ public class BossManager : MonoBehaviour
                 Debug.Log("Boss still has less than 1/3!");
                 spriteRenderer.sprite = b3;
                 fearEffect();
+                debuffSound.Play();
                 StartCoroutine(MobEffect(2));
             }
             else if(curHP <= BossHP * 2/3){
                 Debug.Log("Boss still has less than 2/3!");
                 spriteRenderer.sprite = b2;
                 fearEffect();
+                debuffSound.Play();
                 //Debug.Log("Y: " + Ball.transform.position.y);
                 StartCoroutine(MobEffect(1));
             }
         }
         else{
             Debug.Log("Boss is dead!");
+            BossKillSound.Play();
             Destroy(other);
             EnScCtr1.ScoreGame1();
         }

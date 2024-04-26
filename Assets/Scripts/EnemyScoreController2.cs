@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class EnemyScoreController2 : MonoBehaviour
 {
     //float timer = 0;
-    public int gameEndKill = 24;
+    //public int gameEndKill = 24;
     int countEnemies = 0;
     [SerializeField] public TMP_Text txtPoints;
+    [SerializeField] AudioSource extraB;
+
     //ClockController clockValue;
 
     // Start is called before the first frame update
@@ -22,6 +24,12 @@ public class EnemyScoreController2 : MonoBehaviour
         int ballN = GameObject.FindGameObjectsWithTag("ball").Length;
         if (ballN == 0){
             Debug.Log("All balls fell into the Pit...");
+            int scoreHS = int.Parse(PlayerPrefs.GetString("EndlessGameHS"));
+                if (int.Parse(txtPoints.text) > scoreHS){
+                    GlobalVariables.HSUpdated = true;
+                    PlayerPrefs.SetString("EndlessGameHS", txtPoints.text);
+                    Debug.Log("SCORE updated: " + txtPoints.text);
+                }
             SceneManager.LoadScene("gameover");
         }
     }
@@ -31,6 +39,7 @@ public class EnemyScoreController2 : MonoBehaviour
         countEnemies++;
         txtPoints.text = countEnemies.ToString();
         if (countEnemies % 5 == 0 && countEnemies > 0){
+            extraB.Play();
             Debug.Log("Add another ball: " + countEnemies + "hits");
             GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
             GameObject newBall = Instantiate(balls[0], transform);

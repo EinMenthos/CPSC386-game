@@ -360,8 +360,10 @@ GameObject:
   - component: {fileID: 467184402}
   - component: {fileID: 467184404}
   - component: {fileID: 467184403}
+  - component: {fileID: 467184405}
+  - component: {fileID: 467184406}
   m_Layer: 5
-  m_Name: Credits
+  m_Name: story
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,7 +385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.1957, y: -4.7721}
+  m_AnchoredPosition: {x: 9.1957, y: -1369}
   m_SizeDelta: {x: 635.7106, y: 354.224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467184403
@@ -406,7 +408,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Developed by Daniel Wu
+  m_text: 'King Brick is finally defeated. His reign of terror and fear is over,
+    but he promised that he will return!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    See you again when he
+    is back!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -483,6 +504,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467184401}
   m_CullTransparentMesh: 1
+--- !u!114 &467184405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467184401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6af3663014364cf5a109860a8064f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endingAnimator: {fileID: 1712995670}
+--- !u!95 &467184406
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467184401}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: caaa4add4962541de9889ebabe4b2f0c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &928490198
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +764,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313702556}
   m_CullTransparentMesh: 1
+--- !u!1 &1712995668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1712995669}
+  - component: {fileID: 1712995670}
+  m_Layer: 0
+  m_Name: storyController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1712995669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712995668}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 951.6584, y: 523.4671, z: -2.0175543}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1712995670
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712995668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: caaa4add4962541de9889ebabe4b2f0c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1898444260
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,7 +967,6 @@ GameObject:
   - component: {fileID: 1904118764}
   - component: {fileID: 1904118763}
   - component: {fileID: 1904118765}
-  - component: {fileID: 1904118766}
   m_Layer: 0
   m_Name: bgMusic
   m_TagString: Untagged
@@ -874,10 +981,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904118762}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6231da9e6dcca49cbbd2a4391f616eae, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5a35930932bc84e70ab9cf2e597cb338, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -972,7 +1079,7 @@ Transform:
   m_GameObject: {fileID: 1904118762}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 722.13184, y: 571.209, z: 3.052144}
+  m_LocalPosition: {x: -264, y: 571.209, z: 3.052144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -991,21 +1098,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 1904118763}
---- !u!114 &1904118766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904118762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3477666b1ca6346d78ffd3d514d1cf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneNames:
-  - option
-  instanceName: option
 --- !u!1 &2022206594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,3 +1174,4 @@ SceneRoots:
   - {fileID: 1898444264}
   - {fileID: 2022206597}
   - {fileID: 1904118764}
+  - {fileID: 1712995669}

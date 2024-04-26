@@ -96,7 +96,6 @@ public class BouncingBall : MonoBehaviour
             }
             else{
                 em.HandleEnemy(collision.collider.gameObject);         //this is the ball
-
             }
 
         }
