@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BuffLoad : MonoBehaviour
 {
-    EnemyManager em;
+    BossManager bm;
+    MobManager mm;
     [SerializeField] public GameObject refBall;
     [SerializeField] public GameObject refPaddle;
 
@@ -13,7 +14,8 @@ public class BuffLoad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        em = FindObjectOfType<EnemyManager>();
+        bm = FindObjectOfType<BossManager>();
+        mm = FindObjectOfType<MobManager>();
         Buff4Game();
 
     }
@@ -32,7 +34,8 @@ public class BuffLoad : MonoBehaviour
             inputEx.waypointRadius *= 0.91f;
         }
         if(GlobalVariables.BuffSpawn != 0){
-            em.maxEnemiesSpawned += 10;
+            bm.limitBreak = 4;
+            mm.limitBreak = 4;
         }
     }
 }

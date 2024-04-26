@@ -38,7 +38,7 @@ public class EnemyScoreController1 : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene ();
         string sceneName = currentScene.name;
         countEnemies++;
-        if (countEnemies % 5 == 0 && countEnemies > 0){
+        if (countEnemies % 5 == 0 && countEnemies > 0 && sceneName != "game1c"){
             Debug.Log("Add another ball: " + countEnemies);
             GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
             GameObject newBall = Instantiate(balls[0], transform);

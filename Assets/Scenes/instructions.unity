@@ -496,7 +496,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 9.1957, y: 344}
-  m_SizeDelta: {x: 635.7106, y: 354.224}
+  m_SizeDelta: {x: 774.1, y: 354.224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467184403
 MonoBehaviour:
@@ -520,17 +520,18 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'In this game, the objective is to destroy all the blocks without letting
     the ball fall into the pit. The ball will bounce differently depending on where
-    it hits the paddle.
+    it hits the paddle. An extra ball will be generated for each 5 hits on enemies.
 
 
-    Time Battle is a game that all enemies need to be eliminated
-    (there are 2 stages).
+    <u>Time
+    Battle</u> is a game where all enemies need to be eliminated (there are 3 stages).
 
-    Endless mode will spawn enemies endlessly. It is also
-    possible to start it with a buff.
+    <u>Endless
+    mode</u> will spawn enemies endlessly.
 
-    Game developed to run at FULL HD (1920
-    x 1080) resolution.
+
+    Game developed to run at FULL HD
+    (1920 x 1080) resolution.
 
 '
   m_isRightToLeft: 0
@@ -559,8 +560,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1480,7 +1481,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 552ff45665cbe466a9773c9288b8f25a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5a35930932bc84e70ab9cf2e597cb338, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

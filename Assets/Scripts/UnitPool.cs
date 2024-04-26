@@ -29,11 +29,11 @@ public class UnitPool : MonoBehaviour
 
     void OnReleasedToPool(GameObject b)
     {
-        b.gameObject.SetActive(false);
+        if(b) b.gameObject.SetActive(false);
     }
 
     void OnDestroyFromPool(GameObject b)
     {
-        Destroy(b.gameObject);
+        if(b) Destroy(b.gameObject);
     }
 }

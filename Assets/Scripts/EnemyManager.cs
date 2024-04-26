@@ -17,9 +17,9 @@ public class EnemyManager : MonoBehaviour
     EnemyScoreController2 EnScCtr2;
 
     //fade in effect while destroying/disabling it
-    public float fadeDelay = 0.3f;
-    public float alphaValue = 0;
-    public bool destroyGameObject = false;
+    //public float fadeDelay = 0.3f;
+    //public float alphaValue = 0;
+    //public bool destroyGameObject = false;
     SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
@@ -68,10 +68,21 @@ public class EnemyManager : MonoBehaviour
             Debug.Log(GameObject.FindGameObjectsWithTag("ball").Length);
             */
     }
+    IEnumerator IDelayReleasePool(GameObject other){
+        //Debug.Log("waiting");
+        yield return new WaitForSeconds(1);
 
+        //Debug.Log("Done waiting");
+        Color tmp = other.GetComponent<SpriteRenderer>().color;
+        tmp.a = 1.0f;
+        other.GetComponent<SpriteRenderer>().color = tmp;
+        if(pool) pool.pool.Release(other);
+        other.GetComponent<BoxCollider2D>().enabled = true;
+
+    }
 
 //this is working. Want to use it when enemy is killed.
-    IEnumerator FadeTo(float aValue, float fadeTime, GameObject other, bool usePooling){
+    IEnumerator IFadeTo(float aValue, float fadeTime, GameObject other, bool usePooling){
         spriteRenderer = other.GetComponent<SpriteRenderer>();
         //Debug.Log("Fade effect");
         float alpha = spriteRenderer.color.a;
@@ -85,32 +96,36 @@ public class EnemyManager : MonoBehaviour
  
     public void HandleEnemy(GameObject other)//Deletes enemy and applies damage
     {
-        //
-        //fade effect
         if(usePooling){
+            other.GetComponent<BoxCollider2D>().enabled = false;
             //StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
             //only happens at endless mode (game2)
             //this.Invoke(() => pool.pool.Release(other), 1.0f);
-            pool.pool.Release(other);
+            StartCoroutine(IFadeTo(0, 0.5f, other, usePooling));
+            StartCoroutine(IDelayReleasePool(other));
             //Debug.Log("releasing...");      //releasing will put it on standby for further usage.
             curSpawned--;
             
             Scene currentScene = SceneManager.GetActiveScene ();
             string sceneName = currentScene.name;
-            if (sceneName.Contains("game1")){
-                //Debug.Log("A mob is killed... ");
+            if (sceneName.Contains("game2")){
+                EnScCtr2.ScoreGame2();
             }
             else{
-                EnScCtr2.ScoreGame2();
+                Debug.Log("A mob is killed... ");
+                //never used path
+                //countEnemies++;
             }
         }
         else{
             other.GetComponent<BoxCollider2D>().enabled = false;
             //spriteRenderer = GetComponent<SpriteRenderer>();
-            StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
+            StartCoroutine(IFadeTo(0, 0.5f, other, usePooling));
             //only happens at time battle (game1)
             Destroy(other,1);
             Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
+            //not need to enable box collider bc it is destroyed.
+            //other.GetComponent<BoxCollider2D>().enabled = true;
             EnScCtr1.ScoreGame1();
         }
         
@@ -122,14 +137,6 @@ public class EnemyManager : MonoBehaviour
         throw new System.NotImplementedException();
     }
 */
-    public GameObject SpawnMobs(int i, int j)
-    {
-        GameObject go;
-        go = pool.pool.Get();
-        //go = Instantiate(enemyPrefab, transform);
-        //go.transform.position = new Vector3(Random.Range(-8, 8), Random.Range(-2, 3));
-        go.transform.position = new Vector3(i, j);
-        return go;
-    }
+
 
 }

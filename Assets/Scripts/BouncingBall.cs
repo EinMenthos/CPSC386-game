@@ -7,6 +7,7 @@ public class BouncingBall : MonoBehaviour
 {
     EnemyManager em;
     BossManager bm;
+    MobManager mm;
     public Rigidbody2D rigidbodyB {get; private set; }
     public float speed = 6f;
     public TMP_Text scorePlayer;
@@ -20,6 +21,7 @@ public class BouncingBall : MonoBehaviour
     {
         em = FindObjectOfType<EnemyManager>();
         bm = FindObjectOfType<BossManager>();
+        mm = FindObjectOfType<MobManager>();
     }
 
     void Update()
@@ -87,7 +89,16 @@ public class BouncingBall : MonoBehaviour
     {
         //Debug.Log("Collision Action");
         if(collision.collider.CompareTag("Enemy")){
-            em.HandleEnemy(collision.collider.gameObject);         //this is the ball
+            Scene currentScene = SceneManager.GetActiveScene ();
+            string sceneName = currentScene.name;
+            if (sceneName.Contains("game1c")){
+                mm.HandleEnemy(collision.collider.gameObject);         //this is the ball
+            }
+            else{
+                em.HandleEnemy(collision.collider.gameObject);         //this is the ball
+
+            }
+
         }
         if(collision.collider.CompareTag("Boss")){
             bm.HandleEnemy(collision.collider.gameObject);         //this is the ball

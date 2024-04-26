@@ -35,7 +35,7 @@ public class shopbuff : MonoBehaviour
         //the game might be paused at start. Should start it.
         Time.timeScale = 1;
         //2 scenes used to create each level.
-        SceneManager.LoadScene("game2b", LoadSceneMode.Single);
-        SceneManager.LoadScene("baseLv", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("game1c", LoadSceneMode.Single);
+        //SceneManager.LoadScene("baseLv", LoadSceneMode.Additive);
     }
 }
