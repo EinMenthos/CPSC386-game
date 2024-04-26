@@ -57,6 +57,8 @@ public class EnemyScoreController1 : MonoBehaviour
                 }
                 Time.timeScale = 0;                
                 txtClear.gameObject.SetActive(true); //show the text on canvas.
+                btNextLv.gameObject.SetActive(true);
+
         }
         else{
             if (sceneName == "game1" || sceneName == "game1b"){
