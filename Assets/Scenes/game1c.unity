@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 15920377}
   - component: {fileID: 15920376}
+  - component: {fileID: 15920378}
   m_Layer: 0
   m_Name: fearSound
   m_TagString: Untagged
@@ -251,6 +252,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &15920378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15920375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 15920376}
 --- !u!1 &37209890
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 37209892}
   - component: {fileID: 37209891}
+  - component: {fileID: 37209893}
   m_Layer: 0
   m_Name: BossKillSound
   m_TagString: Untagged
@@ -379,6 +394,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &37209893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37209890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 37209891}
 --- !u!1 &167886489
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 167886491}
   - component: {fileID: 167886490}
+  - component: {fileID: 167886492}
   m_Layer: 0
   m_Name: BossHitSound
   m_TagString: Untagged
@@ -507,6 +536,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167886492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167886489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 167886490}
 --- !u!1 &181756219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,6 +1913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073593356}
   - component: {fileID: 1073593355}
+  - component: {fileID: 1073593357}
   m_Layer: 0
   m_Name: enemyKillSound
   m_TagString: Untagged
@@ -1989,6 +2032,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1073593357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073593354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 1073593355}
 --- !u!1 &1117352368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,6 +3149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683215673}
   - component: {fileID: 1683215672}
+  - component: {fileID: 1683215674}
   m_Layer: 0
   m_Name: 1upSound
   m_TagString: Untagged
@@ -3211,6 +3268,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1683215674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683215671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 1683215672}
 --- !u!1 &1689907856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,6 +3291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1689907858}
   - component: {fileID: 1689907857}
+  - component: {fileID: 1689907859}
   m_Layer: 0
   m_Name: pauseSound
   m_TagString: Untagged
@@ -3339,6 +3410,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689907859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689907856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 1689907857}
 --- !u!1 &1885706014
 GameObject:
   m_ObjectHideFlags: 0

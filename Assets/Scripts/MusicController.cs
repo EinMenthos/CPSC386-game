@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class SoundController : MonoBehaviour
+public class MusicController : MonoBehaviour
 {
     public AudioSource backgroundMusic;    
     
@@ -19,21 +19,21 @@ public class SoundController : MonoBehaviour
     }
     */
     public void CheckVolumePrefs(){
-        if(!PlayerPrefs.HasKey("VolumeLv")){
-            Debug.Log("Creating PlayerPrefs.VolumeLv");
-            PlayerPrefs.SetFloat("VolumeLv",50);
+        if(!PlayerPrefs.HasKey("MusicLv")){
+            Debug.Log("Creating PlayerPrefs.MusicLv");
+            PlayerPrefs.SetFloat("MusicLv",50);
         }
         else{
-            //Debug.Log(PlayerPrefs.GetInt("VolumeLv"));
-            backgroundMusic.volume = PlayerPrefs.GetFloat("VolumeLv")/100;
+            //Debug.Log(PlayerPrefs.GetInt("MusicLv"));
+            backgroundMusic.volume = PlayerPrefs.GetFloat("MusicLv")/100;
             
         }
-        if(!PlayerPrefs.HasKey("VolumeMute")){
-            Debug.Log("Creating PlayerPrefs.VolumeMute");
-            PlayerPrefs.SetInt("VolumeMute",1);
+        if(!PlayerPrefs.HasKey("MusicMute")){
+            Debug.Log("Creating PlayerPrefs.MusicMute");
+            PlayerPrefs.SetInt("MusicMute",1);
         }
         else{
-            if (PlayerPrefs.GetInt("VolumeMute") == 0) backgroundMusic.mute = true;
+            if (PlayerPrefs.GetInt("MusicMute") == 0) backgroundMusic.mute = true;
             else backgroundMusic.mute = false;
         }
     }

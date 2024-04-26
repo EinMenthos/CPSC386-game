@@ -504,6 +504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 270024940}
   - component: {fileID: 270024939}
+  - component: {fileID: 270024941}
   m_Layer: 0
   m_Name: enemyKillSound
   m_TagString: Untagged
@@ -622,6 +623,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270024941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270024938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 270024939}
 --- !u!1001 &322448109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3876,6 +3890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1658088991}
   - component: {fileID: 1658088990}
+  - component: {fileID: 1658088992}
   m_Layer: 0
   m_Name: pauseSound
   m_TagString: Untagged
@@ -3994,6 +4009,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1658088992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658088989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 1658088990}
 --- !u!4 &1659057239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}
@@ -4078,6 +4106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1710082122}
   - component: {fileID: 1710082121}
+  - component: {fileID: 1710082123}
   m_Layer: 0
   m_Name: 1upSound
   m_TagString: Untagged
@@ -4196,6 +4225,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1710082123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710082120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 1710082121}
 --- !u!4 &1730784083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}

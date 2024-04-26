@@ -488,6 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591326908}
   - component: {fileID: 591326907}
+  - component: {fileID: 591326909}
   m_Layer: 0
   m_Name: pauseSound
   m_TagString: Untagged
@@ -606,6 +607,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &591326909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591326906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 591326907}
 --- !u!1 &727578728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476558105}
   - component: {fileID: 1476558104}
+  - component: {fileID: 1476558106}
   m_Layer: 0
   m_Name: enemyKillSound
   m_TagString: Untagged
@@ -1337,6 +1352,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1476558106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476558103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 1476558104}
 --- !u!1 &1501285548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1678793437}
   - component: {fileID: 1678793436}
+  - component: {fileID: 1678793438}
   m_Layer: 0
   m_Name: 1upSound
   m_TagString: Untagged
@@ -1607,6 +1636,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1678793438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678793435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 1678793436}
 --- !u!1 &1737821263
 GameObject:
   m_ObjectHideFlags: 0
