@@ -14,11 +14,6 @@ public class FXSlider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //have to relink with actual music
-        if (backgroundFX == null){
-            Debug.Log("Slider: Creating link to original AudioSource FX Object");
-            backgroundFX = GameObject.FindGameObjectWithTag("FX").GetComponent<AudioSource>();
-        }
         CheckVolumePrefs();
     }
 
@@ -40,5 +35,13 @@ public class FXSlider : MonoBehaviour
         t1.text = s1.value.ToString();
         PlayerPrefs.SetFloat("FXLv", (int)s1.value);
         backgroundFX.volume = PlayerPrefs.GetFloat("FXLv")/100;
+        backgroundFX.Play();
+    }
+    public void SetVolume_start(){
+        //Debug.Log(s1.value);
+        t1.text = s1.value.ToString();
+        PlayerPrefs.SetFloat("FXLv", (int)s1.value);
+        backgroundFX.volume = PlayerPrefs.GetFloat("FXLv")/100;
+        //backgroundFX.Play();
     }
 }

@@ -130,12 +130,16 @@ public class InputExample : MonoBehaviour
                     pauseSound.Play();
                     if (Time.timeScale == 1) { // pausing the game
                         Time.timeScale = 0;
-                        if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = true;
+                        if(PlayerPrefs.GetInt("MusicMute") == 1) backgroundMusic.mute = true;
+                        //if(PlayerPrefs.GetInt("FXMute") == 1) backgroundFX.mute = true;
+
                         tPause.gameObject.SetActive(true);
                     }
                     else{
                         Time.timeScale = 1;
-                        if(PlayerPrefs.GetInt("VolumeMute") == 1)backgroundMusic.mute = false;
+                        if(PlayerPrefs.GetInt("MusicMute") == 1) backgroundMusic.mute = false;
+                        //if(PlayerPrefs.GetInt("FXMute") == 1) backgroundFX.mute = false;
+
                         tPause.gameObject.SetActive(false);
                     } 
                 }

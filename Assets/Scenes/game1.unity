@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 342522491}
   m_Layer: 0
   m_Name: enemyKillSound
-  m_TagString: Untagged
+  m_TagString: FX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -700,7 +700,7 @@ AudioSource:
   m_GameObject: {fileID: 342522488}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1714185958747277216, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
   m_audioClip: {fileID: 8300000, guid: d3fd9050adf34426e93e9001e4a551cf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -811,10 +811,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 342522488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Script: {fileID: 11500000, guid: 77b0f5855d17c4d35bc8fbfb505f0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 342522489}
+  backgroundFX: {fileID: 342522489}
+--- !u!1 &355149751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 355149752}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &355149752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355149751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1106.1941, y: 625.861, z: 2.75631}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &435849648
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,7 +2911,7 @@ AudioSource:
   m_GameObject: {fileID: 1501285548}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8383288194538449063, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4952ff4059b6d46b6adc52e0c8a510cd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3167,7 +3198,7 @@ GameObject:
   - component: {fileID: 1641100944}
   m_Layer: 0
   m_Name: pauseSound
-  m_TagString: Untagged
+  m_TagString: FX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3181,7 +3212,7 @@ AudioSource:
   m_GameObject: {fileID: 1641100941}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1714185958747277216, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
   m_audioClip: {fileID: 8300000, guid: 965ddb7a1becf45bb9213301b6658b29, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3276,8 +3307,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641100941}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4802447, y: -0.62655646, z: -0.056113496}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.4802246, y: -0.6265869, z: -0.05611348}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3383,7 +3414,7 @@ GameObject:
   - component: {fileID: 1701347075}
   m_Layer: 0
   m_Name: 1upSound
-  m_TagString: Untagged
+  m_TagString: FX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3397,7 +3428,7 @@ AudioSource:
   m_GameObject: {fileID: 1701347072}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1714185958747277216, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4d175658f2bdc4233843783fb58c4aa7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3508,10 +3539,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1701347072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Script: {fileID: 11500000, guid: 77b0f5855d17c4d35bc8fbfb505f0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1701347073}
+  backgroundFX: {fileID: 1701347073}
 --- !u!4 &1730784083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}
@@ -4507,3 +4538,4 @@ SceneRoots:
   - {fileID: 1701347074}
   - {fileID: 1432422637}
   - {fileID: 2009020226}
+  - {fileID: 355149752}

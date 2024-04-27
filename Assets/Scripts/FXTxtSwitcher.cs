@@ -26,12 +26,6 @@ public class FXTxtSwitcher : MonoBehaviour
         if (muteFX == 0){
             FXtext.text = "Off";
         }
-
-        //have to relink with actual music
-        if (backgroundFX == null){
-            Debug.Log("Button: Creating link to original AudioSource FX Object");
-            backgroundFX = GameObject.FindGameObjectWithTag("FX").GetComponent<AudioSource>();
-        }
     }
     
         public void SwitchFX()
@@ -42,6 +36,27 @@ public class FXTxtSwitcher : MonoBehaviour
         if (muteFX == 0)
         {
             //PlayerPrefs.SetInt("MusicMute", 1);
+            backgroundFX.Play();
+            FXtext.text = "On";
+            PlayerPrefs.SetInt("FXMute",1);
+            muteFX = 1;
+            backgroundFX.mute = false;
+        } 
+        else{
+            //PlayerPrefs.SetInt("MusicMute", 0);
+            FXtext.text = "Off";
+            PlayerPrefs.SetInt("FXMute",0);
+            muteFX = 0;
+            backgroundFX.mute = true;
+        }
+    }
+            public void SwitchFX_Start()
+    {
+        // Toggle mute state
+        //GlobalVariables.muteConfig = !GlobalVariables.muteConfig;
+
+        if (muteFX == 0)
+        {
             FXtext.text = "On";
             PlayerPrefs.SetInt("FXMute",1);
             muteFX = 1;

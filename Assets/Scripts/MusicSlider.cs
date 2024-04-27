@@ -36,7 +36,7 @@ public class MusicSlider : MonoBehaviour
     }
 
     public void SetVolume(){
-        //Debug.Log(s1.value);
+        Debug.Log(s1.value);
         t1.text = s1.value.ToString();
         PlayerPrefs.SetFloat("MusicLv", (int)s1.value);
         backgroundMusic.volume = PlayerPrefs.GetFloat("MusicLv")/100;
