@@ -1339,15 +1339,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You made so much noise that King Brick has awakened! Defeat it and bring
+  m_text: 'You made so much noise that King Bricks has awakened! Defeat it and bring
     back the peace!
 
-    But King Brick plays unfairly! He can use a debuff field
-    that will push back the balls and recreate the minions to shield him!
+    But King Bricks fights unfairly! His roar will push away
+    the balls and summon minions to shield him!
 
 
-    Please
-    choose a blessing to fight against it!'
+    Please choose a blessing to
+    have a chance in this fight!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

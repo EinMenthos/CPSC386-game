@@ -68,10 +68,10 @@ public class MobManager : MonoBehaviour
         //
         //fade effect
         other.GetComponent<BoxCollider2D>().enabled = false;
-        bm.countHits++;
-        if (bm.countHits % limitBreak == 0 && bm.countHits > 0){
+        bm.limitCounter++;
+        if (bm.limitCounter % limitBreak == 0 && bm.limitCounter > 0){
             extraB.Play();
-            Debug.Log("Add another ball: " + bm.countHits + "hits");
+            Debug.Log("Add another ball: " + bm.limitCounter + "hits");
             GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
             GameObject newBall = Instantiate(balls[0], transform);
             newBall.transform.position = balls[0].transform.position;

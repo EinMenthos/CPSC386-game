@@ -13,11 +13,8 @@ public class BossManager : MonoBehaviour
     public Rigidbody2D Ball;
 
     [SerializeField] public float BossHP = 100;
-        //float curHP = 0;//Should increment up to maxEnemiesSpawned
-    private float curHP = 0;//Should increment up to maxEnemiesSpawned
+    [SerializeField] private float curHP = 0; //Should decrement till zero
     [SerializeField] RectTransform healthbarFill;
-    //public float spawnsPerSecond = 0.5f;
-    //[SerializeField] public bool usePooling = false;
     [SerializeField] GameObject BossGO;
     public UnitPool pool;
     [SerializeField] GameObject enemyPrefab;
@@ -32,7 +29,7 @@ public class BossManager : MonoBehaviour
     public Sprite b2;
     public Sprite b3;
     [SerializeField] private Animator fearAnimator;
-    public int countHits = 0;
+    public int limitCounter = 0;
     public int limitBreak = 5;
     [SerializeField] AudioSource BossKillSound;
     [SerializeField] AudioSource debuffSound;
@@ -85,10 +82,10 @@ public class BossManager : MonoBehaviour
 
         if (curHP > 0){
             Debug.Log(curHP + " / " + BossHP);
-            countHits++;
-            if (countHits % limitBreak == 0 && countHits > 0){
+            limitCounter++;
+            if (limitCounter % limitBreak == 0 && limitCounter > 0){
                 extraB.Play();
-                Debug.Log("Add another ball: " + countHits + "hits");
+                Debug.Log("Add another ball: " + limitCounter + "hits");
                 GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
                 GameObject newBall = Instantiate(balls[0], transform);
                 newBall.transform.position = balls[0].transform.position;
@@ -175,23 +172,4 @@ public class BossManager : MonoBehaviour
             }
         }
     }
-
-/*    bool isEnemyPresent(int x, int y)
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        //Debug.Log("Enemies found: " + enemies.Length);
-        foreach (GameObject enemy in enemies)
-        {
-            Vector3 enemyPosition = enemy.transform.position;
-            //Debug.Log("Enemy position: " + enemyPosition);
-
-            // Check if the enemy is at the specified position
-            if (Mathf.RoundToInt(enemyPosition.x) == x && Mathf.RoundToInt(enemyPosition.y) == y)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-*/
 }

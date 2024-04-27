@@ -5,9 +5,8 @@ public class BottomWall : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Trigger / bottom wall");
+        //Debug.Log("Trigger / bottom wall");
         if(collider.tag == "ball"){
-            //SceneManager.LoadScene("gameover");
             Debug.Log("A Ball fell into pit!");
             Destroy(collider.gameObject);
         }
