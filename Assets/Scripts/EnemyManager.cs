@@ -71,13 +71,6 @@ public class EnemyManager : MonoBehaviour
         {
             SpawnEnemy();
             timer = 0;
-            /*
-            Scene currentScene = SceneManager.GetActiveScene ();
-            string sceneName = currentScene.name;
-            if (sceneName.Contains("game2")){
-                //Debug.Log("enemies on screen: " + curSpawned);
-            }
-            */
         }
         //GameObject.FindGameObjectsWithTag("ball").Length  // used to count "balls"
         //GameObject.FindGameObjectsWithTag("Enemy").Length   //used to count "Enemies" on screen
@@ -99,7 +92,6 @@ public class EnemyManager : MonoBehaviour
 
     }
 
-//this is working. Want to use it when enemy is killed.
     IEnumerator IFadeTo(float aValue, float fadeTime, GameObject other, bool usePooling){
         spriteRenderer = other.GetComponent<SpriteRenderer>();
         //Debug.Log("Fade effect");
@@ -116,9 +108,6 @@ public class EnemyManager : MonoBehaviour
     {
         if(usePooling){
             other.GetComponent<BoxCollider2D>().enabled = false;
-            //StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
-            //only happens at endless mode (game2)
-            //this.Invoke(() => pool.pool.Release(other), 1.0f);
             killSound.Play();
             StartCoroutine(IFadeTo(0, 0.5f, other, usePooling));
             StartCoroutine(IDelayReleasePool(other));
@@ -130,33 +119,16 @@ public class EnemyManager : MonoBehaviour
             if (sceneName.Contains("game2")){
                 EnScCtr2.ScoreGame2();
             }
-            else{
-                Debug.Log("A mob is killed... ");
-                //never used path
-                //countEnemies++;
-            }
         }
         else{
             other.GetComponent<BoxCollider2D>().enabled = false;
             killSound.Play();
-            //spriteRenderer = GetComponent<SpriteRenderer>();
             StartCoroutine(IFadeTo(0, 0.5f, other, usePooling));
             //only happens at time battle (game1)
             Destroy(other,1);
             Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
-            //not need to enable box collider bc it is destroyed.
-            //other.GetComponent<BoxCollider2D>().enabled = true;
             EnScCtr1.ScoreGame1();
         }
         
     }
-
-/*
-    private void Invoke(System.Func<IEnumerator> value, float v)
-    {
-        throw new System.NotImplementedException();
-    }
-*/
-
-
 }

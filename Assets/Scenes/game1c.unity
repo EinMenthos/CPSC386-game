@@ -1701,7 +1701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mm: {fileID: 365967790}
   Ball: {fileID: 2093203680}
-  BossHP: 30
+  BossHP: 2
   healthbarFill: {fileID: 1885706015}
   BossGO: {fileID: 391635632}
   pool: {fileID: 476653646}
@@ -1819,7 +1819,6 @@ MonoBehaviour:
   waypointRadius: 7.2
   pauseSound: {fileID: 1689907857}
   tPause: {fileID: 323300871}
-  tClear: {fileID: 0}
   myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!114 &727578732
 MonoBehaviour:
@@ -3480,7 +3479,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
