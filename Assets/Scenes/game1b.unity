@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 270024939}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1001 &322448109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2067,10 +2067,10 @@ MonoBehaviour:
   physicsModifier: 100
   moveDir: {x: 0, y: 0}
   waypointRadius: 7.2
-  backgroundMusic: {fileID: 1501285549}
   pauseSound: {fileID: 1658088990}
   tPause: {fileID: 323300871}
   tClear: {fileID: 0}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!114 &727578732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3721,7 +3721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1501285549}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!114 &1501285552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4021,7 +4021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1658088990}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!4 &1659057239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}
@@ -4237,7 +4237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1710082121}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!4 &1730784083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}

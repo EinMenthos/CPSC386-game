@@ -27,6 +27,10 @@ public class BouncingBall : MonoBehaviour
     void Update()
     {
         rigidbodyB.velocity = rigidbodyB.velocity.normalized * speed;
+        //mysterious cases where the ball teleports outside screen
+        if (this.transform.position.x > 10 || this.transform.position.x < -10 || this.transform.position.y > 6 || this.transform.position.y < -6){
+            Destroy(this);
+        }
     }
 /*
     // Update is called once per frame

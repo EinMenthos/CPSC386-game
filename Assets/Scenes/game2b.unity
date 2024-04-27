@@ -482,10 +482,10 @@ MonoBehaviour:
   physicsModifier: 100
   moveDir: {x: 0, y: 0}
   waypointRadius: 7.2
-  backgroundMusic: {fileID: 1501285549}
   pauseSound: {fileID: 1558577700}
   tPause: {fileID: 1737821265}
   tClear: {fileID: 0}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &739320725
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,10 +670,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 755757294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Script: {fileID: 11500000, guid: 77b0f5855d17c4d35bc8fbfb505f0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 755757295}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &854126561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,10 +1106,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1403759194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Script: {fileID: 11500000, guid: 77b0f5855d17c4d35bc8fbfb505f0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1403759195}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &1432422635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1501285549}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &1558577699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,10 +1612,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1558577699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
+  m_Script: {fileID: 11500000, guid: 77b0f5855d17c4d35bc8fbfb505f0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1558577700}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &1607801233
 GameObject:
   m_ObjectHideFlags: 0

@@ -814,38 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b0f5855d17c4d35bc8fbfb505f0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundFX: {fileID: 342522489}
---- !u!1 &355149751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 355149752}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &355149752
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355149751}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1106.1941, y: 625.861, z: 2.75631}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &435849648
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,10 +1684,10 @@ MonoBehaviour:
   physicsModifier: 100
   moveDir: {x: 0, y: 0}
   waypointRadius: 7.2
-  backgroundMusic: {fileID: 1501285549}
   pauseSound: {fileID: 1641100942}
   tPause: {fileID: 323300871}
   tClear: {fileID: 0}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!114 &727578732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3025,7 +2994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1501285549}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!114 &1501285552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3326,7 +3295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b0f5855d17c4d35bc8fbfb505f0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundFX: {fileID: 1641100942}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!4 &1659057239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}
@@ -3542,7 +3511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b0f5855d17c4d35bc8fbfb505f0a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundFX: {fileID: 1701347073}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!4 &1730784083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5507066701166160700, guid: 2cbdae1a24e744a048766e416e411108, type: 3}
@@ -4538,4 +4507,3 @@ SceneRoots:
   - {fileID: 1701347074}
   - {fileID: 1432422637}
   - {fileID: 2009020226}
-  - {fileID: 355149752}

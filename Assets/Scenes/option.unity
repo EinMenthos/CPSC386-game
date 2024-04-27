@@ -542,7 +542,6 @@ MonoBehaviour:
   s1: {fileID: 200874503}
   t1: {fileID: 728438590}
   myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
-  Musictext: {fileID: 385780644}
 --- !u!1 &212094241
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,8 +778,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 339738082}
-        m_TargetAssemblyTypeName: FXTxtSwitcher, Assembly-CSharp
-        m_MethodName: SwitchFX
+        m_TargetAssemblyTypeName: SFXTxtSwitcher, Assembly-CSharp
+        m_MethodName: SwitchSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -842,6 +841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFXtext: {fileID: 1994989927}
   backgroundSFX: {fileID: 1301060960}
+  s1: {fileID: 713288408}
   myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &346754367
 GameObject:
@@ -2120,7 +2120,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1714185958747277216, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 434a4f3a10a034f7d86af441a59f1bf9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0dd3cdac935ce481199bf73f71ca7db2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3378,9 +3378,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226e1e5a3185144b4ace33296c047b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Musictext: {fileID: 385780644}
+  musicText: {fileID: 385780644}
   backgroundMusic: {fileID: 1904118763}
   backgroundFX: {fileID: 1301060960}
+  s1: {fileID: 200874503}
+  muteMusic: 0
   myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &1994989925
 GameObject:

@@ -27,7 +27,6 @@ public class MusicSlider : MonoBehaviour
             PlayerPrefs.SetFloat("MusicLv",50);
         }
         else{
-            //Debug.Log(PlayerPrefs.GetInt("MusicLv"));
             s1.value = PlayerPrefs.GetFloat("MusicLv");
         }
 
@@ -36,14 +35,8 @@ public class MusicSlider : MonoBehaviour
 //https://www.youtube.com/watch?v=G-JUp8AMEx0
 //how to use audio mixer
     public void SetVolume(){
-        //Debug.Log(s1.value);
         t1.text = s1.value.ToString();
         PlayerPrefs.SetFloat("MusicLv", (int)s1.value);
-        //PlayerPrefs.SetInt("MusicMute",0);
-        //mts.musicText.text = "On";
-        //mts.muteMusic = 0;
-        
-        //backgroundMusic.volume = PlayerPrefs.GetFloat("MusicLv")/100;
         float volume = s1.value;
         if (volume != 0)
             myMixer.SetFloat("Music", Mathf.Log10(volume/20)*20);

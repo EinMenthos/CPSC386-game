@@ -9,6 +9,8 @@ using UnityEngine;
 /// </summary>
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+
 
 
 public class InputExample : MonoBehaviour
@@ -21,19 +23,15 @@ public class InputExample : MonoBehaviour
     public float physicsModifier = 100f;
     public Vector2 moveDir = Vector2.zero;
     [SerializeField] public float waypointRadius = 7.18f;
-    [SerializeField] AudioSource backgroundMusic;
+    //[SerializeField] AudioSource backgroundMusic;
     [SerializeField] AudioSource pauseSound;    
-
     [SerializeField] TMP_Text tPause;
-    public TMP_Text tClear;
+    //public TMP_Text tClear;
+    [SerializeField] private AudioMixer myMixer;
 
 
     void Start(){
-        //have to relink with actual music due to transition of game1 to game1b
-        if (backgroundMusic == null){
-            Debug.Log("Button: Creating link to original AudioSource Object");
-            backgroundMusic = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioSource>();
-        }
+
     }
 
     void Update(){
@@ -46,37 +44,10 @@ public class InputExample : MonoBehaviour
             }
         }
     }
-    /*
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        int ballN = GameObject.FindGameObjectsWithTag("ball").Length;
-        if (ballN > 0){
-            if(movingBody) 
-                if(useForce)    //need to set the flag        
-                    movingBody.AddForce(moveDir*moveSpeed*Time.deltaTime*physicsModifier, ForceMode2D.Force);
-                else{   //we are mainly using this route
-                    //get ball position to avoid it going into the walls
-                    Vector2 ballPos = movingBody.position+(moveDir*moveSpeed*Time.deltaTime);
-                    if (ballPos.x > -waypointRadius && ballPos.x < waypointRadius) {
-                        speed = jumpingBody.velocity.magnitude;
-                        if (speed == 0)
-                        {
-                            //ball will move together with the bar
-                            jumpingBody.MovePosition(jumpingBody.position+(moveDir*moveSpeed*Time.deltaTime));     
-                        }
-                            //bar will move no matter the speed of the ball
-                            movingBody.MovePosition(movingBody.position+(moveDir*moveSpeed*Time.deltaTime));
-                    }
-                }
-        }
-    }
-*/
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //if(movingBody) 
             if(useForce)    //need to set the flag        
                 movingBody.AddForce(moveDir*moveSpeed*Time.deltaTime*physicsModifier, ForceMode2D.Force);
             else{   //we are mainly using this route
@@ -130,16 +101,18 @@ public class InputExample : MonoBehaviour
                     pauseSound.Play();
                     if (Time.timeScale == 1) { // pausing the game
                         Time.timeScale = 0;
-                        if(PlayerPrefs.GetInt("MusicMute") == 1) backgroundMusic.mute = true;
-                        //if(PlayerPrefs.GetInt("FXMute") == 1) backgroundFX.mute = true;
-
                         tPause.gameObject.SetActive(true);
+                        if (PlayerPrefs.GetInt("MusicMute") == 0) myMixer.SetFloat("Music", -80.0f);
                     }
                     else{
                         Time.timeScale = 1;
-                        if(PlayerPrefs.GetInt("MusicMute") == 1) backgroundMusic.mute = false;
-                        //if(PlayerPrefs.GetInt("FXMute") == 1) backgroundFX.mute = false;
-
+                        if (PlayerPrefs.GetInt("MusicMute") == 0){
+                            float volume = PlayerPrefs.GetFloat("MusicLv");
+                            if (volume != 0)
+                                myMixer.SetFloat("Music", Mathf.Log10(volume/20)*20);
+                            else
+                                myMixer.SetFloat("Music", -80.0f); 
+                            }
                         tPause.gameObject.SetActive(false);
                     } 
                 }
