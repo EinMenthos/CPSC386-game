@@ -1,25 +1,23 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class MusicSlider : MonoBehaviour
 {
     [SerializeField] private Slider s1;
     [SerializeField] private TMP_Text t1;
-    [SerializeField] public AudioSource backgroundMusic;    
+    [SerializeField] private AudioMixer myMixer;
+    //[SerializeField] private MusicTxtSwitcher mts;
+    //public TMP_Text buttonText;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //have to relink with actual music
-        if (backgroundMusic == null){
-            Debug.Log("Slider: Creating link to original AudioSource Music Object");
-            backgroundMusic = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioSource>();
-        }
         CheckVolumePrefs();
+        //if(mts == null)  Debug.Log("miss");
+        //else Debug.Log("Gotcha");
     }
 
 
@@ -35,10 +33,23 @@ public class MusicSlider : MonoBehaviour
 
     }
 
+//https://www.youtube.com/watch?v=G-JUp8AMEx0
+//how to use audio mixer
     public void SetVolume(){
-        Debug.Log(s1.value);
+        //Debug.Log(s1.value);
         t1.text = s1.value.ToString();
         PlayerPrefs.SetFloat("MusicLv", (int)s1.value);
-        backgroundMusic.volume = PlayerPrefs.GetFloat("MusicLv")/100;
+        //PlayerPrefs.SetInt("MusicMute",0);
+        //mts.musicText.text = "On";
+        //mts.muteMusic = 0;
+        
+        //backgroundMusic.volume = PlayerPrefs.GetFloat("MusicLv")/100;
+        float volume = s1.value;
+        if (volume != 0)
+            myMixer.SetFloat("Music", Mathf.Log10(volume/20)*20);
+        else
+            myMixer.SetFloat("Music", -80.0f);
+        
     }
+
 }

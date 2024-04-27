@@ -541,7 +541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   s1: {fileID: 200874503}
   t1: {fileID: 728438590}
-  backgroundMusic: {fileID: 1904118763}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
+  Musictext: {fileID: 385780644}
 --- !u!1 &212094241
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,8 +840,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40f57263ea424f5ca3dea18f5095a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FXtext: {fileID: 1994989927}
-  backgroundFX: {fileID: 1301060960}
+  SFXtext: {fileID: 1994989927}
+  backgroundSFX: {fileID: 1301060960}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &346754367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,13 +1652,13 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 75
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 713288409}
-        m_TargetAssemblyTypeName: FXSlider, Assembly-CSharp
-        m_MethodName: SetVolume_start
+        m_TargetAssemblyTypeName: SFXSlider, Assembly-CSharp
+        m_MethodName: SetVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1680,7 +1682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   s1: {fileID: 713288408}
   t1: {fileID: 503971573}
-  backgroundFX: {fileID: 1301060960}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
+  backgroundSFX: {fileID: 1301060960}
 --- !u!1 &728438588
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,7 +3106,7 @@ AudioSource:
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -3211,7 +3214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4710e43f0c2ab48099c9f7e70d56657a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMusic: {fileID: 1904118763}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!114 &1904118766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3315,7 +3318,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1920173233}
         m_TargetAssemblyTypeName: MusicTxtSwitcher, Assembly-CSharp
-        m_MethodName: SwitchSound
+        m_MethodName: SwitchMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3378,6 +3381,7 @@ MonoBehaviour:
   Musictext: {fileID: 385780644}
   backgroundMusic: {fileID: 1904118763}
   backgroundFX: {fileID: 1301060960}
+  myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!1 &1994989925
 GameObject:
   m_ObjectHideFlags: 0
