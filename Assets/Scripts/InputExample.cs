@@ -23,16 +23,9 @@ public class InputExample : MonoBehaviour
     public float physicsModifier = 100f;
     public Vector2 moveDir = Vector2.zero;
     [SerializeField] public float waypointRadius = 7.18f;
-    //[SerializeField] AudioSource backgroundMusic;
     [SerializeField] AudioSource pauseSound;    
     [SerializeField] TMP_Text tPause;
-    //public TMP_Text tClear;
     [SerializeField] private AudioMixer myMixer;
-
-
-    void Start(){
-
-    }
 
     void Update(){
         if (!jumpingBody){
@@ -81,7 +74,6 @@ public class InputExample : MonoBehaviour
 
     void OnJump()
     {
-        //Debug.Log("Spacebar pressed");
         if (jumpingBody){
             speed = jumpingBody.velocity.magnitude;
         if (speed == 0 )

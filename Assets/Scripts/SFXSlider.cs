@@ -10,16 +10,11 @@ public class SFXSlider : MonoBehaviour
     [SerializeField] private TMP_Text t1;
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] public AudioSource backgroundSFX;    
-    //public TMP_Text SFXtext;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         CheckVolumePrefs();
     }
-
 
     public void CheckVolumePrefs(){
         if(!PlayerPrefs.HasKey("SFXLv")){

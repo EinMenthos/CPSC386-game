@@ -9,10 +9,8 @@ public class SFXTxtSwitcher : MonoBehaviour
     public AudioSource backgroundSFX;   
     [SerializeField] private Slider s1;
  
-
     int muteSFX;
     [SerializeField] private AudioMixer myMixer;
-
 
     void Start()
     {
@@ -23,10 +21,8 @@ public class SFXTxtSwitcher : MonoBehaviour
             myMixer.SetFloat("SFX", -80.0f);
         }
     }
-    
-        public void SwitchSFX()
+    public void SwitchSFX()
     {
-        // Toggle mute state
         if (muteSFX == 1)
         {
             backgroundSFX.Play();
@@ -43,7 +39,6 @@ public class SFXTxtSwitcher : MonoBehaviour
                 if (volume != 0) myMixer.SetFloat("SFX", Mathf.Log10(volume/20)*20);
                 else myMixer.SetFloat("SFX", -80.0f);
             } 
-            //}
         } 
         else{
             Debug.Log("SFX Muted");

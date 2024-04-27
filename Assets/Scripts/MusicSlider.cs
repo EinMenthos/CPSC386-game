@@ -8,16 +8,10 @@ public class MusicSlider : MonoBehaviour
     [SerializeField] private Slider s1;
     [SerializeField] private TMP_Text t1;
     [SerializeField] private AudioMixer myMixer;
-    //[SerializeField] private MusicTxtSwitcher mts;
-    //public TMP_Text buttonText;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         CheckVolumePrefs();
-        //if(mts == null)  Debug.Log("miss");
-        //else Debug.Log("Gotcha");
     }
 
 
@@ -42,7 +36,5 @@ public class MusicSlider : MonoBehaviour
             myMixer.SetFloat("Music", Mathf.Log10(volume/20)*20);
         else
             myMixer.SetFloat("Music", -80.0f);
-        
     }
-
 }

@@ -19,7 +19,6 @@ public class BuffLoad : MonoBehaviour
         bm = FindObjectOfType<BossManager>();
         mm = FindObjectOfType<MobManager>();
         Buff4Game();
-
     }
     void Buff4Game(){
         if (GlobalVariables.BuffBall != 0){

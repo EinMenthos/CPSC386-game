@@ -6,7 +6,6 @@ public class SFXController : MonoBehaviour
 { 
     [SerializeField] private AudioMixer myMixer;
 
-    // Start is called before the first frame update
     void Start()
     {
         CheckSFXPrefs();
@@ -17,7 +16,6 @@ public class SFXController : MonoBehaviour
             myMixer.SetFloat("SFX", -80.0f);
         } 
         else{
-            //backgroundSFX.mute = false;
             float volume = PlayerPrefs.GetFloat("SFXLv");
             if (volume != 0)
                 myMixer.SetFloat("SFX", Mathf.Log10(volume/20)*20);

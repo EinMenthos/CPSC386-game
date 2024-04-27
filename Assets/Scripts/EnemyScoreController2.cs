@@ -5,19 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class EnemyScoreController2 : MonoBehaviour
 {
-    //float timer = 0;
-    //public int gameEndKill = 24;
     int countEnemies = 0;
     [SerializeField] public TMP_Text txtPoints;
     [SerializeField] AudioSource extraB;
-
-    //ClockController clockValue;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //clockValue = FindObjectOfType<ClockController>();
-    }
 
     void Update()
     {
@@ -40,7 +30,7 @@ public class EnemyScoreController2 : MonoBehaviour
         txtPoints.text = countEnemies.ToString();
         if (countEnemies % 5 == 0 && countEnemies > 0){
             extraB.Play();
-            Debug.Log("Add another ball: " + countEnemies + "hits");
+            Debug.Log("Add another ball after " + countEnemies + " hits");
             GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
             GameObject newBall = Instantiate(balls[0], transform);
             newBall.transform.position = balls[0].transform.position;

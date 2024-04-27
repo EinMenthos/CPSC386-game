@@ -15,11 +15,6 @@ public class MobManager : MonoBehaviour
     [SerializeField] AudioSource killSound;
     [SerializeField] AudioSource extraB;
 
-
-
-    //public float fadeDelay = 0.3f;
-    //public float alphaValue = 0;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +25,9 @@ public class MobManager : MonoBehaviour
         public GameObject SpawnMobs(int i, int j)
     {
         GameObject go;
+        //pool
         go = pool.pool.Get();
+        //not pool
         //go = Instantiate(enemyPrefab, transform);
         //go.transform.position = new Vector3(Random.Range(-8, 8), Random.Range(-2, 3));
         go.transform.position = new Vector3(i, j);
@@ -47,13 +44,10 @@ public class MobManager : MonoBehaviour
         other.GetComponent<SpriteRenderer>().color = tmp;
         if(pool) pool.pool.Release(other);
         other.GetComponent<BoxCollider2D>().enabled = true;
-
     }
 
-//this is working. Want to use it when enemy is killed.
     IEnumerator IFadeTo(float aValue, float fadeTime, GameObject other, bool usePooling){
         spriteRenderer = other.GetComponent<SpriteRenderer>();
-        //Debug.Log("Fade effect");
         float alpha = spriteRenderer.color.a;
         for (float t = 0.0f; t < 1.0f; t+= Time.deltaTime / fadeTime){
             //Debug.Log("Fading: " + t);
@@ -65,8 +59,6 @@ public class MobManager : MonoBehaviour
  
     public void HandleEnemy(GameObject other)//Deletes enemy and applies damage
     {
-        //
-        //fade effect
         other.GetComponent<BoxCollider2D>().enabled = false;
         bm.limitCounter++;
         if (bm.limitCounter % limitBreak == 0 && bm.limitCounter > 0){
@@ -77,30 +69,22 @@ public class MobManager : MonoBehaviour
             newBall.transform.position = balls[0].transform.position;
             newBall.GetComponent<Rigidbody2D>().velocity = new Vector2(balls[0].GetComponent<Rigidbody2D>().velocity.x * Random.Range(-0.5f, 0.5f), balls[0].GetComponent<Rigidbody2D>().velocity.y * Random.Range(-1f, 1f));
     }
-        //Debug.Log(bm.countHits);
         if(usePooling){
-            //StartCoroutine(FadeTo(0, 0.5f, other, usePooling));
             //only happens at endless mode (game2)
-            //this.Invoke(() => pool.pool.Release(other), 1.0f);
             other.GetComponent<BoxCollider2D>().enabled = false;
             killSound.Play();
             StartCoroutine(IFadeTo(0, 0.5f, other, usePooling));
             StartCoroutine(IDelayReleasePool(other));
-            //pool.pool.Release(other);
-            Debug.Log("releasing...");      //releasing will put it on standby for further usage.
+            //Debug.Log("releasing...");
         }
         else{
-            //not the main route - delete
+            //not the main route, without pooling
             other.GetComponent<BoxCollider2D>().enabled = false;
             killSound.Play();
-            //spriteRenderer = GetComponent<SpriteRenderer>();
             StartCoroutine(IFadeTo(0, 0.5f, other, usePooling));
-            //only happens at time battle (game1)
             Destroy(other,1);
-            Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
+            //Debug.Log("destroying...");
             other.GetComponent<BoxCollider2D>().enabled = true;
-
-            //EnScCtr1.ScoreGame1();
         }
         
     }

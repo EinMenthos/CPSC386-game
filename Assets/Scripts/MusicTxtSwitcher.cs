@@ -10,7 +10,6 @@ public class MusicTxtSwitcher : MonoBehaviour
     public AudioSource backgroundFX;    
     [SerializeField] private Slider s1;
 
-
     public int muteMusic;
     [SerializeField] private AudioMixer myMixer;
 
@@ -27,7 +26,6 @@ public class MusicTxtSwitcher : MonoBehaviour
     //when pressed button
     public void SwitchMusic()
     {
-        // Toggle mute state
         backgroundFX.Play();
         if (muteMusic == 1)
         {

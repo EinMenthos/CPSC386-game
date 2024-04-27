@@ -17,13 +17,8 @@ public class EnemyManager : MonoBehaviour
     EnemyScoreController1 EnScCtr1;
     EnemyScoreController2 EnScCtr2;
 
-    //fade in effect while destroying/disabling it
-    //public float fadeDelay = 0.3f;
-    //public float alphaValue = 0;
-    //public bool destroyGameObject = false;
     SpriteRenderer spriteRenderer;
     [SerializeField] AudioSource killSound;    
-
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +42,6 @@ public class EnemyManager : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         List<string> enemiesPos = new List<string>();
         foreach (GameObject enemy in enemies){
-            //Debug.Log("Getting list of enemies on screen...");
             enemiesPos.Add(enemy.transform.position.x.ToString() + "," + enemy.transform.position.y.ToString());
         }
         int x = Random.Range(-8, 9);
@@ -59,7 +53,6 @@ public class EnemyManager : MonoBehaviour
         }
         go.transform.position = new Vector3(x, y);
         curSpawned++;
-
         return go;
     }
 
@@ -83,7 +76,6 @@ public class EnemyManager : MonoBehaviour
         //Debug.Log("waiting");
         yield return new WaitForSeconds(1);
 
-        //Debug.Log("Done waiting");
         Color tmp = other.GetComponent<SpriteRenderer>().color;
         tmp.a = 1.0f;
         other.GetComponent<SpriteRenderer>().color = tmp;
@@ -94,7 +86,6 @@ public class EnemyManager : MonoBehaviour
 
     IEnumerator IFadeTo(float aValue, float fadeTime, GameObject other, bool usePooling){
         spriteRenderer = other.GetComponent<SpriteRenderer>();
-        //Debug.Log("Fade effect");
         float alpha = spriteRenderer.color.a;
         for (float t = 0.0f; t < 1.0f; t+= Time.deltaTime / fadeTime){
             //Debug.Log("Fading: " + t);
@@ -124,9 +115,9 @@ public class EnemyManager : MonoBehaviour
             other.GetComponent<BoxCollider2D>().enabled = false;
             killSound.Play();
             StartCoroutine(IFadeTo(0, 0.5f, other, usePooling));
-            //only happens at time battle (game1)
+            //only happens at time battle (game1 and game1b)
             Destroy(other,1);
-            Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
+            //Debug.Log("destroying...");     //destroy will simply remove it from memory (need to render it later if needed)
             EnScCtr1.ScoreGame1();
         }
         

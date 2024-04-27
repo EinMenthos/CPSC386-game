@@ -18,11 +18,6 @@ public class FadeDestroy : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-/*
-        if (destroyGameObject)
-            Destroy(gameObject,2);
-            //gameObject.SetActive(false);
-            */
     }
 
     void Update(){
@@ -41,6 +36,5 @@ public class FadeDestroy : MonoBehaviour
             spriteRenderer.color = newColor;
             yield return null;
         }
-
     }
 }

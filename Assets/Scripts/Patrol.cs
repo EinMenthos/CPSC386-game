@@ -8,7 +8,6 @@ public class Patrol : MonoBehaviour
     List<Vector3> waypoints;
     [SerializeField]
     float moveSpeed = 5f, waitTime = 1f, waypointRadius = 0.5f;
-    // Start is called before the first frame update
     int curIndex = 0;
     float waitTimer;
     void Start()
@@ -18,7 +17,6 @@ public class Patrol : MonoBehaviour
             waitTimer = waitTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if((transform.position - waypoints[curIndex]).magnitude < waypointRadius)
@@ -32,7 +30,7 @@ public class Patrol : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position,waypoints[curIndex],moveSpeed*Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, waypoints[curIndex], moveSpeed*Time.deltaTime);
         }
     }
 }

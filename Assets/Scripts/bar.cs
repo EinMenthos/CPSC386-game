@@ -27,7 +27,7 @@ public class Bar : MonoBehaviour
         outBall();
     }
         public void outBall (){
-        //mysterious cases where the ball teleports outside screen
+        //mysterious cases where the ball teleports outside walls
         GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
         foreach (GameObject ball in balls)
         {

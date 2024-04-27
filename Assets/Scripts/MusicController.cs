@@ -6,7 +6,6 @@ public class MusicController : MonoBehaviour
 {
     [SerializeField] private AudioMixer myMixer;
 
-    // Start is called before the first frame update
     void Start()
     {
         if(!PlayerPrefs.HasKey("SFXLv")){
@@ -33,7 +32,6 @@ public class MusicController : MonoBehaviour
             myMixer.SetFloat("Music", -80.0f);
         } 
         else{
-            //backgroundMusic.mute = false;
             float volume = PlayerPrefs.GetFloat("MusicLv");
             if (volume != 0)
                 myMixer.SetFloat("Music", Mathf.Log10(volume/20)*20);

@@ -16,6 +16,7 @@ public class Highscore : MonoBehaviour
 
     //https://docs.unity3d.com/ScriptReference/PlayerPrefs.html
     //macos save it at /Users/danielwu/Library/Preferences/unity.WuCompany.Project1.plist
+    //could be directly deleted at EDIT > Clear All PlayerPrefs
     
     public void LoadPlayerPrefs(){
         Debug.Log("Loading PlayerPrefs.EndlessGameHS");

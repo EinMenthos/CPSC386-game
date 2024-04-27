@@ -7,12 +7,6 @@ public class barBottom : MonoBehaviour
     public GameObject barT;
     public GameObject barB;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

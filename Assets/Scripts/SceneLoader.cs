@@ -11,7 +11,6 @@ public class SceneLoader : MonoBehaviour
     public string SceneName = "";
     public bool GoNextScene;
     //https://docs.unity3d.com/ScriptReference/EditorGUI.BeginDisabledGroup.html
-    //public bool disableTransition = false;
     public Animator transition;
     public float transitionTime = 1f;
 
@@ -33,7 +32,6 @@ public class SceneLoader : MonoBehaviour
     }
 
     IEnumerator TransitionLevel(){
-
         //Play animation
         transition.SetTrigger("Start");
         //Wait

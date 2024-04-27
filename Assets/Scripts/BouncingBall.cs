@@ -41,7 +41,6 @@ public class BouncingBall : MonoBehaviour
             else{
                 em.HandleEnemy(collision.collider.gameObject);         //this is the ball
             }
-
         }
         if(collision.collider.CompareTag("Boss")){
             bm.HandleEnemy(collision.collider.gameObject);         //this is the ball
@@ -53,6 +52,4 @@ public class BouncingBall : MonoBehaviour
             rigidbodyB.velocity = new Vector2(rigidbodyB.velocity.x, rigidbodyB.velocity.y + yDistance - Mathf.Sign(yDistance) * Random.Range(0.2f, 0.5f));
         }
     }
-
-
 }

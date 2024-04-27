@@ -17,7 +17,7 @@ public class shopbuff : MonoBehaviour
     public void LoadBuff(){
         //globalVariables.HSUpdated flag is set during game1 and game1.
         //Should be disabled before starting another game
-        if(BuffName == "Ball" || BuffName == "Paddle" || BuffName == "Spawn"){
+        if(BuffName == "Ball" || BuffName == "Paddle" || BuffName == "Limit"){
             GlobalVariables.HSUpdated = false;
         }
         if(BuffName == "Ball"){
@@ -28,14 +28,11 @@ public class shopbuff : MonoBehaviour
             GlobalVariables.BuffPaddle += 1;
             Debug.Log("Buff Paddle +" + GlobalVariables.BuffPaddle);
         }
-        if(BuffName == "Spawn"){
+        if(BuffName == "Limit"){
             GlobalVariables.BuffSpawn += 1;
-            Debug.Log("Buff Spawn +" + GlobalVariables.BuffSpawn);
+            Debug.Log("Limit Break -1" + GlobalVariables.BuffSpawn);
         }
-        //the game might be paused at start. Should start it.
+        //the game should be paused at this scene. Should start it.
         Time.timeScale = 1;
-        //2 scenes used to create each level.
-        //SceneManager.LoadScene("game1c", LoadSceneMode.Single);
-        //SceneManager.LoadScene("baseLv", LoadSceneMode.Additive);
     }
 }

@@ -8,16 +8,11 @@ public class EnemyScoreController1 : MonoBehaviour
     int countEnemies = 0;
     [SerializeField] public TMP_Text txtClear;
     [SerializeField] public TMP_Text txtPoints;
-    
-    //link to next button
     [SerializeField] public GameObject btNextLv;
-        //High score
     public TMP_Text HSUpdate;
     Highscore hs;
     ClockController clockValue;
     [SerializeField] AudioSource extraB;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +31,11 @@ public class EnemyScoreController1 : MonoBehaviour
     }
 
     public void ScoreGame1(){
-        //Debug.Log("ScoreGame1");
         Scene currentScene = SceneManager.GetActiveScene ();
         string sceneName = currentScene.name;
         countEnemies++;
         if (sceneName == "game1c"){
-                Debug.Log("The boss stage is cleared!!!");
+                Debug.Log("The Boss stage is cleared!!!");
                 string[] parts = PlayerPrefs.GetString("TimeBattleHS").Split(':', ' ');
                 int minutes = int.Parse(parts[0]);
                 int seconds = int.Parse(parts[1]);
@@ -63,7 +57,7 @@ public class EnemyScoreController1 : MonoBehaviour
         else{
             if (sceneName == "game1" || sceneName == "game1b"){
                 if (countEnemies == gameEndKill){
-                    Debug.Log("All enemies were killed in " + sceneName +"!!!");
+                    Debug.Log("Stage " + sceneName +" Cleared!!!");
                     PlayerPrefs.SetFloat("TimeBattleActual", clockValue.elapsedTime);
                     Debug.Log("Time Battle partial time: " + clockValue.elapsedTime);                                    
                     txtClear.gameObject.SetActive(true); //show the text on canvas.
@@ -73,7 +67,7 @@ public class EnemyScoreController1 : MonoBehaviour
                 else{
                     if (countEnemies % 5 == 0 && countEnemies > 0){
                         extraB.Play();
-                        Debug.Log("Add another ball: " + countEnemies + "hits");
+                        Debug.Log("Add another ball after " + countEnemies + " hits");
                         GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
                         
                         GameObject newBall = Instantiate(balls[0], transform);

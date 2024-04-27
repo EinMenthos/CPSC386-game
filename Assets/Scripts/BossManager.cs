@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(UnitPool))]
 public class BossManager : MonoBehaviour
 {
-    //[SerializeField] public int maxEnemiesSpawned = 10;
     public MobManager mm;
     public Rigidbody2D Ball;
 
@@ -16,41 +15,26 @@ public class BossManager : MonoBehaviour
     [SerializeField] private float curHP = 0; //Should decrement till zero
     [SerializeField] RectTransform healthbarFill;
     [SerializeField] GameObject BossGO;
-    public UnitPool pool;
-    [SerializeField] GameObject enemyPrefab;
-
-    //float timer = 0;
-
-
-    EnemyScoreController1 EnScCtr1;
-    //EnemyScoreController2 EnScCtr2;
-
-    public SpriteRenderer spriteRenderer;
+     public SpriteRenderer spriteRenderer;
     public Sprite b2;
     public Sprite b3;
     [SerializeField] private Animator fearAnimator;
+    
+    public UnitPool pool;
+    [SerializeField] GameObject enemyPrefab;
+    EnemyScoreController1 EnScCtr1;
+
     public int limitCounter = 0;
     public int limitBreak = 5;
+
     [SerializeField] AudioSource BossKillSound;
     [SerializeField] AudioSource debuffSound;
     [SerializeField] AudioSource extraB;    
     [SerializeField] AudioSource BossHit;    
 
-
-
-
-/*
-    //fade in effect while destroying/disabling it
-    public float fadeDelay = 0.3f;
-    public float alphaValue = 0;
-    public bool destroyGameObject = false;
-    SpriteRenderer spriteRenderer;
-*/
-
     // Start is called before the first frame update
     void Start()
     {
-        //mm = FindObjectOfType<MobManager>();
         pool = GetComponent<UnitPool>();
         EnScCtr1 = FindObjectOfType<EnemyScoreController1>();
         curHP = BossHP;
@@ -71,7 +55,6 @@ public class BossManager : MonoBehaviour
             }
         }
     }
-
 
     public void HandleEnemy(GameObject other)//Deletes enemy and applies damage
     {
@@ -122,10 +105,8 @@ public class BossManager : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         List<string> enemiesPos = new List<string>();
         foreach (GameObject enemy in enemies){
-            //Debug.Log("Getting list of enemies on screen...");
             enemiesPos.Add(enemy.transform.position.x.ToString() + "," + enemy.transform.position.y.ToString());
-        }
-        
+        } 
         Debug.Log("Building barrier!");
         for (int j = 1; j <= 4; j++){
             if (!enemiesPos.Contains("-2," + j)){
@@ -159,7 +140,6 @@ public class BossManager : MonoBehaviour
 
     private void fearEffect(){
         fearAnimator.Play("fearCircle",0,0.0f);
-
         Debug.Log("Fear Effect");
         GameObject[] balls = GameObject.FindGameObjectsWithTag("ball");
         foreach (GameObject ball in balls)
