@@ -408,8 +408,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'King Bricks is finally defeated. His reign of terror is over, but he promised
-    that he will return!
+  m_text: '
+
+    King Bricks is fatally wounded and went back to sleep. His reign
+    of terror is over, but he promised that he will return!
 
 
 
@@ -424,9 +426,8 @@ MonoBehaviour:
 
 
 
-
-
-    See you again when he is back!'
+    See
+    you again when he is back!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

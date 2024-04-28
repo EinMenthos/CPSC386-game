@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scenebase: 
-  SceneName: shop
+  SceneName: buff
   GoNextScene: 0
   transition: {fileID: 0}
   transitionTime: 1
@@ -2069,7 +2069,6 @@ MonoBehaviour:
   waypointRadius: 7.2
   pauseSound: {fileID: 1658088990}
   tPause: {fileID: 323300871}
-  tClear: {fileID: 0}
   myMixer: {fileID: 24100000, guid: c1a87de03d3c24eaf951189d27ac7c62, type: 2}
 --- !u!114 &727578732
 MonoBehaviour:

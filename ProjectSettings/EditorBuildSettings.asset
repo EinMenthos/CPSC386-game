@@ -12,6 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/instructions.unity
     guid: 90f34e35ec65d49e586f2d88f35b3f81
   - enabled: 1
+    path: Assets/Scenes/option.unity
+    guid: 38c8e766e3bf045eb9aa8dd63e3389c5
+  - enabled: 1
+    path: Assets/Scenes/credits.unity
+    guid: 3f35dc07f373c4481906694a7fe50db2
+  - enabled: 1
+    path: Assets/Scenes/highscore.unity
+    guid: 5e646ccbc8b854856ba1216358597e7c
+  - enabled: 1
     path: Assets/Scenes/baseLv.unity
     guid: f18a52c3d326c494a8a409c4ec44065b
   - enabled: 1
@@ -29,23 +38,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/game2.unity
     guid: db4b6423b3e1141f79d63ccc43105907
-  - enabled: 0
-    path: Assets/Scenes/game2b.unity
-    guid: 3dcd36d29b2ea4637a708cf848dd9198
-  - enabled: 1
-    path: Assets/Scenes/option.unity
-    guid: 38c8e766e3bf045eb9aa8dd63e3389c5
   - enabled: 1
     path: Assets/Scenes/gameover.unity
     guid: d58aa211805694469898f0b6b3204461
   - enabled: 1
-    path: Assets/Scenes/credits.unity
-    guid: 3f35dc07f373c4481906694a7fe50db2
-  - enabled: 1
-    path: Assets/Scenes/highscore.unity
-    guid: 5e646ccbc8b854856ba1216358597e7c
-  - enabled: 1
     path: Assets/Scenes/ending.unity
     guid: f0bf48e0afdb8413b847a0cf5ba90bc0
+  - enabled: 0
+    path: Assets/Scenes/game2b.unity
+    guid: 3dcd36d29b2ea4637a708cf848dd9198
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6d40dc1d4bedd45b688f13031e29db95, type: 2}

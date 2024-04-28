@@ -49,7 +49,7 @@ public class BouncingBall : MonoBehaviour
         if(Mathf.Abs(rigidbodyB.velocity.y) < 0.5 && rigidbodyB.velocity.x != 0){
             Debug.Log("Ball stuck at x-axis:  Adding random factor...");
             float yDistance = rigidbodyB.position.y - transform.position.y;
-            rigidbodyB.velocity = new Vector2(rigidbodyB.velocity.x, rigidbodyB.velocity.y + yDistance - Mathf.Sign(yDistance) * Random.Range(0.2f, 0.5f));
+            rigidbodyB.velocity = new Vector2(rigidbodyB.velocity.x, rigidbodyB.velocity.y + yDistance - Mathf.Sign(yDistance) * Random.Range(-0.5f, -0.2f));
         }
     }
 }
